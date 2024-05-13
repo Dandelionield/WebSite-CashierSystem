@@ -43,13 +43,13 @@ update.getAll((p) =>{
 			
 		};
 		
-		const allLi = document.querySelectorAll('li');
+		const Buttons = document.querySelectorAll('.version-button');
 
-		allLi.forEach(li =>{
+		Buttons.forEach(boton => {
 			
-			li.addEventListener('click', () =>{
+			boton.addEventListener('click', () => {
 				
-				const id = li.querySelector('h3 b').textContent;
+				const id = boton.querySelector('h3 b').textContent;
 				
 				update.get(id, (q) =>{
 					
@@ -110,14 +110,13 @@ update.getAll((p) =>{
 				});
 				
 			});
-			
-			document.getElementById('Delete').addEventListener('click', function(){
-	
-				document.getElementById('Comment').value = '';
-				
-			});//*/
-			
 		});
+		
+		document.getElementById('Delete').addEventListener('click', function(){
+	
+			document.getElementById('Comment').value = '';
+			
+		});//*/
 		
 	}
 	
