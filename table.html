@@ -1,0 +1,58 @@
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" media="screen" href="mainStyle.css">
+		<link rel="stylesheet" media="screen" href="BoxStyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<title>C-Cash</title>
+	</head>
+	<body>
+		<script src="scripts.js"></script>
+		
+		<!--Encabezado-->
+		<header>
+			<img src="logo.png" alt="logo" onclick="go('main.html');">
+			<button>Iniciar Sesión</button>
+			<button>Registrarse</button>
+			<img src="menu.png" alt="menu" onclick="openAside();">
+		</header>
+		
+		<!--Aside-->
+		<aside id="aside">
+			<button type="button" onclick="go('main.html');">Inicio</button>
+			<button type="button">Documentacion</button>
+			<button type="button">Actualizaciones</button>
+			<button type="button">Versiones</button>
+			<button type="button" onclick="go('table.html');">Tabla</button>
+			<button type="button">Sobre Nosotros</button>
+			<button type="button">Feedback</button>
+		</aside>
+
+		<!--contenido-->
+		<div class="box4">
+			<div>
+				<h3>Users</h3>
+				<table>
+					<tbody id="table_user"></tbody>
+				</table>
+			</div>
+			
+			<div>
+				<h3>Feedback</h3>
+				<table>
+					<tbody id="table_feedback"></tbody>
+				</table>
+			</div>
+			
+			<button type="button" id="reloadTable" onclick="reloadTable();">
+				Recargar
+			</button>
+		</div>
+		
+		<!--footer-->
+		<footer>
+			asd
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+:root {
+	--primary: #7950F2; /* Morado */
+	--secundary: #342D39; /* Negro */
+	--complementary: #F1E7F2;
+}
+
+.box1 {
+	background-image: url("test.png");
+	background-color: var(--secundary);
+	color: white;
+	padding: 20px;
+	box-sizing: border-box;
+	width:100%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+
+.box1 img {
+	width: 300px;
+	height: 100%;
+}
+
+.sub_box1 {
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+	justify-content:space-between;
+	box-sizing:border-box;
+	padding: 0px 20px;
+	gap: 30px;
+}
+
+.box2 {
+	background-image: url("test.png");
+	background-color: var(--complementary);
+	color: var(--primary);
+	padding: 20px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box2 img {
+    /*border: 2px solid var(--primary);*/
+    margin: 20px 0px 20px 0px;
+	height: 300px;
+    width: 300px;
+}
+
+.box3 {
+	background-image: url("test.png");
+	background-color: white;
+    color: var(--primary);
+	padding: 20px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub_box3 {
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0px;
+	align-items: center;
+	color: white;
+	background-color: var(--primary);
+}
+
+.box4 {
+	background-image: url("test.png");
+	background-color: var(--complementary);
+	color: var(--primary);
+	padding: 20px;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+	justify-content: space-around;
+}
+
+table {
+	width: 500px;
+	border: 1px solid var(--primary);
+	background-color: white;
+}
+
+th:hover {
+	background-color: var(--primary);
+	cursor: pointer;
+	color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+	.box1 {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}
+
+@media only screen and (max-width: 1224px) {
+	.box4 {
+		flex-direction: column;
+		gap: 20px
+	}
+}

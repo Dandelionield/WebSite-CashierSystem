@@ -1,0 +1,110 @@
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="mainStyle.css">
+		<link rel="stylesheet" media="screen" href="BoxStyle.css">
+		<link rel="stylesheet" media="screen" href="./carrusel/style.css">
+		<title>C-Cash</title>
+	</head>
+	
+	<body>
+		<script src="scripts.js"></script>
+
+		<!--Encabezado-->
+		<header>
+			<img src="menu.png" alt="menu" onclick="openAside();">
+			<img src="logo.png" alt="logo" onclick="go('main.html');">
+			<button>Documentación</button>
+			<a href="#imagenes"><button>Imagenes</button></a>
+			<button>Iniciar Sesión</button>
+			<button>Registrarse</button>
+			
+		</header>
+		
+		<!--Aside-->
+		<aside id="aside">
+			<button type="buttom" onclick="go('main.html');">Inicio</button>
+			<button type="buttom">Documentacion</button>
+			<button type="buttom">Actualizaciones</button>
+			<button type="buttom">Versiones</button>
+			<button type="button" onclick="go('table.html');">Tabla</button>
+			<button type="buttom">Sobre Nosotros</button>
+			<button type="buttom">Feedback</button>
+		</aside>
+		
+		<!--Descargar-->
+		<div class="box1" >
+			<div style="width: 300px;">
+				<img src="./imagenes/Icono.png" alt="Documentación" width=300px height=100px>
+			</div>
+			<div class="sub_box1">
+				<h1>C-Cash</h1>
+				
+				<p>
+				En VC company, entendemos que la gestión eficiente es clave para el éxito de cualquier negocio.<br>
+				Nuestro software ha sido diseñado para simplificar y optimizar tus operaciones diarias, independientemente del sector en el que te encuentres.<br>
+				 ¿Qué puedes esperar de nosotros?<br>
+				 <br>
+				 En VC company, estamos comprometidos con tu éxito.<br>
+				  Ya seas una pequeña tienda local o una gran corporación, nuestro software se adapta a tus necesidades.<br>
+				   Únete a nosotros y descubre cómo podemos simplificar tu día a día.<br>
+				   <br>
+				¡Bienvenidos a la era de la eficiencia empresarial con VC company!<br>
+				
+				</p>
+				
+				<div>
+					<button type="button">Descargar</button>
+					<button type="button">Versiones</button>
+				</div>
+			</div>
+		</div>
+		
+		<!--Documentación-->
+		<div class="box2">
+			<h1>Documentación</h1>
+			
+			<img src="https://cdn-icons-png.flaticon.com/512/1156/1156975.png" alt="Documentación" width=500px height=300px>
+			
+			<button type="button">Descargar</button>
+		</div>
+		
+		<!--Imagenes-->
+		<div class="box3">
+			<h1 id="imagenes">Imagenes</h1>
+			<div class="slider" style="width: 1080px;">
+				./carrusel/images/s1.png
+				./carrusel/images/s2.png
+				./carrusel/images/s3.png
+				./carrusel/images/s4.png
+				./carrusel/images/s5.png
+				./carrusel/images/s6.png
+				./carrusel/images/s7.png
+			</div>
+		</div>
+
+		<div class="captions" style="background-image: url('test.png');">
+			Seguridad al alcance de tu negocio.
+			Disfruta de la variedad de acciones con nuestro<br>servicio completo.
+			Registra tus ventas y genera tus recibos digitales en un instante.
+			Administra tu inventario fácil y rápido.
+			Registra nuevos productos y gestiona con eficiencia.
+			Administra tu personal.
+			Elige tu estilo favorito con 4 combinaciones distintas.
+		</div>
+		
+		<!--footer-->
+		<footer>
+        
+			<p>© 2024 Cashier System. Todos los derechos reservados.</p>
+			<p>Contáctanos: <a href="mailto:euleralx@gmail.com">euleralx@gmail.com</a></p>
+			<p>Síguenos en redes sociales: <a href="https://www.facebook.com/">Facebook</a> | <a href="https://twitter.com/">Twitter</a> | <a href="https://www.instagram.com/">Instagram</a></p>  
+			<p><a href="">Conocenos</a> | <a href="">Términos y condiciones</a></p>
+	
+			<br>Contenido del sitio 2024© Derechos reservados para presentacion de proyecto de aula.
+	
+		</footer>
+		<script src="./carrusel/carruso.js"></script>
+	</body>
+</html>

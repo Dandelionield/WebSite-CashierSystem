@@ -1,0 +1,168 @@
+.downloads{
+	
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+    overflow-x: hidden;
+	background-color: rgb(38, 40, 46);
+	color: white;
+	font-family: "Helvetica", sans-serif;
+	
+}
+
+header{
+	
+    padding: 10px;
+    text-align: center;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+	
+}
+
+main{
+	
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+	margin-top: 50px;
+	
+}
+
+.list-container{
+	
+	display: inline-block;
+	margin-left: -200%;
+	
+}
+
+.list{
+	
+	list-style-type: none;
+	
+}
+
+.list li{
+	
+	margin-bottom: 50px;
+	
+}
+
+.list li a, .update-container a{
+	
+	color: white;
+	
+}
+
+.version .date{
+	
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	
+}
+
+.update-container{
+	
+	max-width: 500px;
+	max-height: 200px;
+	
+}
+
+.tittle{
+	
+	margin-left: 45%;
+	
+}
+
+.update-container img {
+	
+	max-width: 100%;
+	height: auto;
+	
+}
+
+.description{
+	
+	max-width: 100%;
+	height: auto;
+	
+}
+
+form, fieldset{
+	
+	border: none;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	
+}
+
+.input, .input-submit{
+	
+	border-radius: 4px;
+	border: gray 2px inset;
+	background: rgb(0, 0, 0, 0);
+	padding: 10px;
+	margin-bottom: 20px;
+	color: white;
+	resize: none;
+	
+}
+
+.input-submit{
+	
+	margin-right: 5%;
+	
+}
+
+.input{
+	
+	width: 100%;
+	height: 100px;
+	overflow-y: auto;
+	
+}
+
+.input:hover, .input-submit:hover{
+	
+	background-color: rgb(63, 66, 77);
+	
+}
+
+.version:hover .date{
+	
+	opacity: 1;
+	
+}
+
+.version-button{
+	
+	border: none;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+	
+}
+
+footer{
+	
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+	
+}
+
+.hf, .hf a{
+	
+	background-color: rgb(63, 66, 77);
+	color: white;
+	
+}

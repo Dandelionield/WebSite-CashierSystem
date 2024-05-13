@@ -1,0 +1,15 @@
+{
+  "name": "versionado",
+  "version": "1.0.0",
+  "main": "Conexion.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

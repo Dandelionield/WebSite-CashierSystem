@@ -1,0 +1,119 @@
+:root {
+	--primary:#7950F2; /* Morado */
+	--secundary:#342D39; /* Negro */
+	--complementary:#F1E7F2;
+}
+
+* {
+	margin: 0px;
+}
+
+header {
+	height:50px;
+	background-color:var(--primary);
+	color:white;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+	width: 100%;
+	margin-top: -50px;
+    position: fixed;
+}
+
+header button {
+	height: 100%;
+	width: 100%;
+}
+
+header img {
+	margin-left: 20px;
+	margin-right: 20px;
+	height: 50%;
+	cursor: pointer;
+}
+
+body{
+	margin-top: 50px !important;
+}
+
+footer {
+	background-color:var(--secundary);
+	color:white;
+	box-sizing:border-box;
+
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+footer p{
+	margin: 10px;
+}
+
+aside {
+	position: fixed;
+    background-color: var(--secundary);
+    z-index: 20;
+    height: 100vh;
+    width: 250px;
+	padding: 1px;
+    border-right: 2px solid var(--primary);
+	margin-left: -250px;
+	box-sizing: border-box;
+	gap: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside button {
+	width: 100%;
+}
+
+button {
+	background-color:var(--primary);
+    color:white;
+	padding: 8px 25px;
+	cursor: pointer;
+	border: 2px solid var(--primary);
+	box-sizing:border-box;
+}
+
+button:hover {
+	background-color: white;
+	color: var(--primary);
+	border: 2px solid var(--primary);
+}
+
+button:active {
+	background-color:var(--secundary);
+	color: var(--primary);
+	border: 2px solid var(--primary);
+}
+
+h1 {
+	font-family: Calibri;
+}
+
+p {
+	font-size: 20;
+    font-family: calibri;
+}
+
+@keyframes slideIn {
+    from {
+        margin-left: -250px;
+    }
+	to {
+		margin-left: 0px;
+	}
+}
+
+@keyframes slideOut {
+    from {
+        margin-left: 0px;
+    }
+	to {
+		margin-left: -250px;
+	}
+}
