@@ -3,7 +3,7 @@
 //import Conexion from './Conexion.js';
 
 const row = "download";
-const bd = "http://localhost/WebSite-ChashierSystem/php/Conexion.php";
+const bd = "http://localhost/WebSite-CashierSystem/php/Conexion.php";
 
 class update extends Conexion {
 
