@@ -105,18 +105,18 @@ update.getAll((p) =>{
 						
 						`;
 						
+						document.getElementById('Delete').addEventListener('click', function(){
+	
+							document.getElementById('Comment').value = '';
+							
+						});//*/
+						
 					}
 					
 				});
 				
 			});
 		});
-		
-		document.getElementById('Delete').addEventListener('click', function(){
-	
-			document.getElementById('Comment').value = '';
-			
-		});//*/
 		
 	}
 	

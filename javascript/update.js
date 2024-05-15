@@ -3,12 +3,13 @@
 //import Conexion from './Conexion.js';
 
 const row = "download";
+const bd = "http://localhost/WebSite-ChashierSystem/php/Conexion.php";
 
 class update extends Conexion {
 
-	constructor(ID, date, description, Link) {
+	constructor(ID, date, description, Link, img) {
 
-		super('http://localhost/versionado/Conexion.php');
+		super(bd);
 
 		//super('localhost', 'root', '', 'proyecto');
 
@@ -16,16 +17,17 @@ class update extends Conexion {
 		this._date = date;
 		this._description = description;
 		this._Link = Link;
+		this._img = img;
 
 	}
 
 	static get(ID, callback) {
 
-		const cn = new Conexion('http://localhost/versionado/Conexion.php');
+		const cn = new Conexion(bd);
 
 		cn.sentence("SELECT * FROM `" + row + "` WHERE ID = '" + ID + "'", (q) => {
 
-			const p = new update(q[0][0], new Date(q[0][1]), q[0][2], q[0][3]);
+			const p = new update(q[0][0], new Date(q[0][1]), q[0][2], q[0][3], q[0][4]);
 			//cn.end();
 			callback(p);
 
@@ -35,7 +37,7 @@ class update extends Conexion {
 
 	static getAll(callback) {
 
-		const cn = new Conexion('http://localhost/versionado/Conexion.php');
+		const cn = new Conexion(bd);
 
 		cn.sentence("SELECT * FROM `" + row + "`", (q) => {
 
@@ -45,7 +47,7 @@ class update extends Conexion {
 
 				let r = q[i];
 
-				p.push(new update(r[0], new Date(r[1]), r[2], r[3]));
+				p.push(new update(r[0], new Date(r[1]), r[2], r[3], r[4]));
 
 			}
 
@@ -78,6 +80,12 @@ class update extends Conexion {
 	getLink() {
 
 		return this._Link;
+
+	}
+	
+	getImg() {
+
+		return this._img;
 
 	}
 
@@ -117,7 +125,7 @@ class update extends Conexion {
 
 	toString() {
 
-		return "{" + this._ID + ", " + this._date + ", " + this._description + ", " + this._Link + "}";
+		return "{" + this._ID + ", " + this._date + ", " + this._description + ", " + this._Link + ", "+ this._img +"}";
 
 	}
 

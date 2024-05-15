@@ -1,7 +1,7 @@
 <?php
 
 	// Establecer la conexión a la base de datos
-	$conexion = new mysqli('localhost', 'root', '', 'proyecto');
+	$conexion = new mysqli('localhost', 'root', '', 'bd_web');
 
 	// Verificar la conexión
 	if ($conexion->connect_error) {

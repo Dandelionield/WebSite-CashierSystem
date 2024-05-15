@@ -1,3 +1,5 @@
+@import url('mainStyle.css');
+
 .downloads {
 
 	margin: 0;
@@ -14,7 +16,7 @@ header {
 
 	padding: 10px;
 	text-align: center;
-	margin-top: 0;
+	margin-top: -50px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -46,7 +48,8 @@ main {
 
 .list li {
 
-	margin-bottom: 50px;
+	margin-bottom: 10px;
+	margin-top: 30px;
 
 }
 
@@ -164,10 +167,8 @@ footer {
 
 }
 
-.hf,
-.hf a {
+.hf{
 
 	background-color: rgb(63, 66, 77);
-	color: white;
 
 }
