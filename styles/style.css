@@ -6,6 +6,7 @@
 }
 
 .captions{
+    background-image: url('imagenes/test.png');
     display: flex;
     height: 180px;
     align-items: center;
@@ -23,7 +24,6 @@
     width: auto;
     height: 100%;
     margin: auto;
-
 }
 
 .control{

@@ -4,83 +4,83 @@
 
 const row = "download";
 
-class update extends Conexion{
-	
-	constructor(ID, date, description, Link){
-		
+class update extends Conexion {
+
+	constructor(ID, date, description, Link) {
+
 		super('http://localhost/versionado/Conexion.php');
-		
+
 		//super('localhost', 'root', '', 'proyecto');
-		
+
 		this._ID = ID;
 		this._date = date;
 		this._description = description;
 		this._Link = Link;
-		
+
 	}
-	
-	static get(ID, callback){
-		
+
+	static get(ID, callback) {
+
 		const cn = new Conexion('http://localhost/versionado/Conexion.php');
 
-		cn.sentence("SELECT * FROM `"+row+"` WHERE ID = '"+ID+"'", (q) =>{
-			
+		cn.sentence("SELECT * FROM `" + row + "` WHERE ID = '" + ID + "'", (q) => {
+
 			const p = new update(q[0][0], new Date(q[0][1]), q[0][2], q[0][3]);
 			//cn.end();
 			callback(p);
-			
+
 		});
-		
+
 	}//*/
-	
-	static getAll(callback){
-		
+
+	static getAll(callback) {
+
 		const cn = new Conexion('http://localhost/versionado/Conexion.php');
-		
-		cn.sentence("SELECT * FROM `"+row+"`", (q) =>{
-			
+
+		cn.sentence("SELECT * FROM `" + row + "`", (q) => {
+
 			let p = [];
-			
-			for (let i=0; i<q.length; i++){
-			
+
+			for (let i = 0; i < q.length; i++) {
+
 				let r = q[i];
-				
+
 				p.push(new update(r[0], new Date(r[1]), r[2], r[3]));
-				
+
 			}
-			
+
 			//cn.end();
-		
+
 			callback(p);
-			
+
 		});
-		
+
 	}
-	
-	getID(){
-		
+
+	getID() {
+
 		return this._ID;
-		
+
 	}
-	
-	getDate(){
-		
+
+	getDate() {
+
 		return this._date;
-		
+
 	}
-	
-	getDescription(){
-		
+
+	getDescription() {
+
 		return this._description;
-		
+
 	}
-	
-	getLink(){
-		
+
+	getLink() {
+
 		return this._Link;
-		
+
 	}
-	
+
 	/*set(){
 		
 		const dd = this._date.getDate();
@@ -96,31 +96,31 @@ class update extends Conexion{
 		this.query("DELETE FROM `"+row+"` WHERE ID = '"+this._ID+"'");
 		
 	}//*/
-	
-	setDescription(description){
-		
+
+	setDescription(description) {
+
 		this._description = description;
-		
+
 	}
-	
-	setLink(Link){
-		
+
+	setLink(Link) {
+
 		this._Link = Link;
-		
+
 	}
-	
+
 	/*length(){
 		
 		return this.sentence('SELECT * from download').lenght;
 		
 	}//*/
-	
-	toString(){
-		
-		return "{"+this._ID+", "+this._date+", "+this._description+", "+this._Link+"}";
-		
+
+	toString() {
+
+		return "{" + this._ID + ", " + this._date + ", " + this._description + ", " + this._Link + "}";
+
 	}
-	
+
 }
 
 //module.exports = { update };

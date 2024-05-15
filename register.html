@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" media="screen" href="styles/mainStyle.css">
 		<link rel="stylesheet" media="screen" href="styles/BoxStyle.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<title>C-Cash</title>
 	</head>
 	<body>
@@ -15,7 +14,7 @@
 		<header>
 			<img src="styles/imagenes/logo.png" alt="logo" onclick="go('main.html');">
 			<button>Iniciar Sesión</button>
-			<button>Registrarse</button>
+			<button onclick="go('register.html');">Registrarse</button>
 			<img src="styles/imagenes/menu.png" alt="menu" onclick="openAside();">
 		</header>
 		
@@ -32,23 +31,31 @@
 
 		<!--contenido-->
 		<div class="box4">
-			<div>
-				<h3>Users</h3>
-				<table>
-					<tbody id="table_user"></tbody>
-				</table>
-			</div>
-			
-			<div>
-				<h3>Feedback</h3>
-				<table>
-					<tbody id="table_feedback"></tbody>
-				</table>
-			</div>
-			
-			<button type="button" id="reloadTable" onclick="reloadTable();">
-				Recargar
-			</button>
+			<form>
+				<h2>Registrarse</h2>
+				
+				<div class="field">
+					<h3>Ingrese su nombre y apellido</h3>
+					<input type="text" placeholder="nombre y apellido">
+				</div>
+				
+				<div class="field">
+					<h3>Ingrese su correo</h3>
+					<input type="email" placeholder="user@email.com">
+				</div>
+				
+				<div class="field">
+					<h3>Ingrese su contraseña</h3>
+					<input type="password" placeholder="contraseña">
+				</div>
+				
+				<input type="submit" value="Registrar">
+				
+				<div class="field2">
+					<a href="main.html">volver</a>
+                    <a href="login.html">¿Ya tiene una cuenta?</a>
+				</div>
+            </form>
 		</div>
 		
 		<!--footer-->
