@@ -186,7 +186,7 @@ mail($destino,$asunto,$cuerpo, $headers);
                             }
                             
                             // prepare the insert query 
-                            $query = "INSERT INTO `users` (`nickname`, `email`, `password`, `admin`, `state`) VALUES ( '".$usuario."', '".$email."', '".$contraseña."', b'0', 'active');";
+                            $query = "INSERT INTO `users` (`nickname`, `email`, `password`, `admin`) VALUES ( '".$usuario."', '".$email."', '".$contraseña."', b'0');";
                             // run the insert query 
                             mysqli_query($connection_obj, $query);
                             // close the db connection 
