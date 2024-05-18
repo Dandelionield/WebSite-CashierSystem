@@ -31,22 +31,27 @@
 
 		<!--contenido-->
 		<div class="box4">
-			<form>
+			<form style="
+			padding: 110px 71px;
+			background: white;
+			border-radius: 20px;
+			box-shadow: -12px 22px 25px black;
+		"  action="php/enviar.php" method="post">
 				<h2>Registrarse</h2>
 				
 				<div class="field">
 					<h3>Ingrese su nombre y apellido</h3>
-					<input type="text" placeholder="nombre y apellido">
+					<input type="text" placeholder="nombre y apellido" name="user">
 				</div>
 				
 				<div class="field">
 					<h3>Ingrese su correo</h3>
-					<input type="email" placeholder="user@email.com">
+					<input type="email" placeholder="user@email.com" name="email">
 				</div>
 				
 				<div class="field">
 					<h3>Ingrese su contraseña</h3>
-					<input type="password" placeholder="contraseña">
+					<input type="password" placeholder="contraseña" name="pass">
 				</div>
 				
 				<input type="submit" value="Registrar">
