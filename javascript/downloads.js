@@ -22,7 +22,7 @@ update.getAll((p) =>{
 			
 			let dd = q.getDate().getDate();
 			let mm =q.getDate().getMonth() + 1;
-			let yyyy = q.getDate().getDate();
+			let yyyy = q.getDate().getFullYear();
 			
 			li.innerHTML = `
 			

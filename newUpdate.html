@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<link rel="stylesheet" type="text/css" href="styles/newUpdate.css">
+
+		<script src="javascript/conexion.js"></script>
+		<script src="javascript/update.js"></script>
+		<script src="javascript/newUpdate.js"></script>
+		
+		<script src="javascript/scripts.js"></script>
+
+		<title>Descargas y Actualizaciones</title>
+
+	</head>
+
+	<body class="downloads">
+
+		<header class="hf">
+
+			<img src="styles/imagenes/menu.png" alt="menu" onclick="openAside();">
+			<img src="styles/imagenes/logo.png" alt="logo" onclick="go('main.html');">
+			
+		</header>
+		
+		<aside id="aside">
+		
+			<button type="buttom" onclick="go('main.html');">Inicio</button>
+			<button type="buttom">Documentacion</button>
+			<button type="buttom">Actualizaciones</button>
+			<button type="buttom">Versiones</button>
+			<button type="button" onclick="go('table.html');">Tabla</button>
+			<button type="buttom">Sobre Nosotros</button>
+			<button type="buttom">Feedback</button>
+			
+		</aside>
+
+		<main>
+		
+			<form action="" method="post">
+			
+				<fieldset class = "form">
+					
+					<legend></legend>
+					
+					<div>
+					
+						<h4></h4>
+						
+						<div class="input-wrapper">
+							
+							<input class = "input-update" type = "text" name = "ID" id = "ID" placeholder = "ID" required>
+							<span class="title-border"></span>
+						
+						</div>
+						
+						<div class="input-wrapper">
+							
+							<input class = "input-date" type = "Date" name = "Date" id = "Date" required>
+						
+						</div>
+						
+						<div class="input-wrapper">
+							
+							<input class = "input-update" type = "text" name = "Description" id = "Description" placeholder = "Description" required>
+							<span class="title-border"></span>
+						
+						</div>
+						
+						<div class="input-wrapper">
+							
+							<input class = "input-update" type = "text" name = "URL" id = "URL" placeholder = "URL" required>
+							<span class="title-border"></span>
+						
+						</div>
+						
+						<div class="input-wrapper">
+							
+							<input class = "input-update" type = "file" name = "Img" id = "Img" required>
+						
+						</div>
+						
+						<div class="input-wrapper">
+						
+							<input class = "input-submit" type = "submit" name = "Submit" id = "Submit">
+						
+						</div>
+						
+					</div>
+					
+				</fieldset>
+				
+			</form>
+		
+		</main>
+
+		<footer class="hf">
+		
+			<p>&copy; 2024 Cashier System. Todos los derechos reservados.</p>
+			<p>Contáctanos: <a href="mailto:euleralx@gmail.com">euleralx@gmail.com</a></p><br>
+			<p>Síguenos en redes sociales:</p>
+			<p><a href="https://www.facebook.com/">Facebook</a> | <a href="https://twitter.com/">Twitter</a> | <a href="https://www.instagram.com/">Instagram</a></p>  
+			<br>
+			<p><a href="">Conocenos</a> | <a href="">Términos y condiciones</a></p>
+		
+			Contenido del sitio 2024&copy; Derechos reservados para presentacion de proyecto de aula.
+			
+		</footer>
+
+	</body>
+
+</html>
