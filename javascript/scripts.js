@@ -7,10 +7,6 @@ function openAside() {
     x.style = "animation: 0.5s " + (isOpen ? "slideIn" : "slideOut") + " forwards;";
 }
 
-function go(page) {
-	window.location.href = page;
-}
-
 function reloadTable() {
 	$.ajax({
         url: "php/table.php",

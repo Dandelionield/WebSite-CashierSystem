@@ -5,8 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" media="screen" href="styles/mainStyle.css">
 		<link rel="stylesheet" media="screen" href="styles/BoxStyle.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<title>C-Cash</title>
+		<title>CashierSystem | login</title>
 	</head>
 	<body>
 		<script src="javascript/scripts.js"></script>
@@ -52,23 +51,26 @@
 
 		<!--contenido-->
 		<div class="box4">
-			<div>
-				<h3>Users</h3>
-				<table>
-					<tbody id="table_user"></tbody>
-				</table>
-			</div>
-			
-			<div>
-				<h3>Feedback</h3>
-				<table>
-					<tbody id="table_feedback"></tbody>
-				</table>
-			</div>
-			
-			<button type="button" id="reloadTable" onclick="reloadTable();">
-				Recargar
-			</button>
+			<form class="form" action="php/login.php" method="post">
+				<h2>Inicio de sesión</h2>
+				
+				<div class="field">
+					<h3>Ingrese su correo</h3>
+					<input type="email" placeholder="user@email.com" name="email" required>
+				</div>
+				
+				<div class="field">
+					<h3>Ingrese su contraseña</h3>
+					<input type="password" placeholder="contraseña" name="pass" required>
+				</div>
+				
+				<input type="submit" value="Iniciar sesión">
+				
+				<div class="field2">
+					<a href="main.html">volver</a>
+                    <a href="register.html">¿No tiene una cuenta?</a>
+				</div>
+            </form>
 		</div>
 		
 		<!--footer-->

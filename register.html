@@ -12,46 +12,61 @@
 		
 		<!--Encabezado-->
 		<header>
-			<img src="styles/imagenes/logo.png" alt="logo" onclick="go('main.html');">
-			<button>Iniciar Sesión</button>
-			<button onclick="go('register.html');">Registrarse</button>
 			<img src="styles/imagenes/menu.png" alt="menu" onclick="openAside();">
+			<a href="main.html">
+				<img src="styles/imagenes/logo.png" alt="logo">
+			</a>
+			<a href="login.html">
+				<button>Iniciar Sesión</button>
+			</a>
+			<a href="register.html">
+				<button onclick="go('register.html');">Registrarse</button>
+			</a>
 		</header>
 		
 		<!--Aside-->
 		<aside id="aside">
-			<button type="button" onclick="go('main.html');">Inicio</button>
-			<button type="button">Documentacion</button>
-			<button type="button">Actualizaciones</button>
-			<button type="button">Versiones</button>
-			<button type="button" onclick="go('table.html');">Tabla</button>
-			<button type="button">Sobre Nosotros</button>
-			<button type="button">Feedback</button>
+			<a href="main.html">
+				<button type="button">Inicio</button>
+			</a>
+			<a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
+				<button type="button">Documentacion</button>
+			</a>
+			<a href="downloads.html">
+				<button type="button">Actualizaciones</button>
+			</a>
+			<a href="downloads.html">
+				<button type="button">Versiones</button>
+			</a>
+			<a href="table.html">
+				<button type="button">Tabla</button>
+			</a>
+			<a href="about_us.html">
+				<button type="button">Sobre Nosotros</button>
+			</a>
+			<a href="feedback.html">
+				<button type="button">Feedback</button>
+			</a>
 		</aside>
 
 		<!--contenido-->
 		<div class="box4">
-			<form style="
-			padding: 110px 71px;
-			background: white;
-			border-radius: 20px;
-			box-shadow: -12px 22px 25px black;
-		"  action="php/enviar.php" method="post">
+			<form class="form" action="php/enviar.php" method="post">
 				<h2>Registrarse</h2>
 				
 				<div class="field">
 					<h3>Ingrese su nombre y apellido</h3>
-					<input type="text" placeholder="nombre y apellido" name="user">
+					<input type="text" placeholder="nombre y apellido" name="user" required>
 				</div>
 				
 				<div class="field">
 					<h3>Ingrese su correo</h3>
-					<input type="email" placeholder="user@email.com" name="email">
+					<input type="email" placeholder="user@email.com" name="email" required>
 				</div>
 				
 				<div class="field">
 					<h3>Ingrese su contraseña</h3>
-					<input type="password" placeholder="contraseña" name="pass">
+					<input type="password" placeholder="contraseña" name="pass" required>
 				</div>
 				
 				<input type="submit" value="Registrar">
@@ -70,9 +85,10 @@
 			<p>Síguenos en redes sociales:</p>
 			<p><a href="https://www.facebook.com/">Facebook</a> | <a href="https://twitter.com/">Twitter</a> | <a href="https://www.instagram.com/">Instagram</a></p>  
 			<br>
-			<p><a href="">Conocenos</a> | <a href="">Términos y condiciones</a></p>
+			<p><a href="about_us.html">Conocenos</a> | <a href="">Términos y condiciones</a></p>
 	
 			Contenido del sitio 2024&copy; Derechos reservados para presentacion de proyecto de aula.
 		</footer>
 	</body>
 </html>
+
