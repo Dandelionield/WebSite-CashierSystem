@@ -123,11 +123,11 @@ th:hover {
 	color: white;
 }
 
-form {
+/*form {
 	width: 500px;
 	border: 1px solid var(--primary);
 	background-color: white;
-}
+}*/
 
 @keyframes slideIn {
     from {
