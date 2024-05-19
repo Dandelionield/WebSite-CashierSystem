@@ -60,12 +60,14 @@ update.getAll((p) =>{
 						let yyyy = q.getDate().getDate();
 						
 						const UpdateContainer = document.getElementById('update-container');
-
+						
+						console.log(q.getImg());
+						
 						UpdateContainer.innerHTML = `
 						
 							<h3 class = "tittle">${id}</h3>
 					
-							<img src = "./prueba.JPG"></img>
+						<img src = "${q.getImg()}"></img>
 							
 							<h5 class = "date"><p>${(dd<10 ? "0"+dd : dd+"")+"/"+(mm<10 ? "0"+mm : mm+"")+"/"+yyyy}</p></h5>
 							

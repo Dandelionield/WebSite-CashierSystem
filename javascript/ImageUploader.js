@@ -31,7 +31,7 @@ class ImageUploader{
             fetch(url,{
 				
                 method: 'POST',
-                body: this.formData
+                body: this._data
 				
             }).then(response =>{
 				

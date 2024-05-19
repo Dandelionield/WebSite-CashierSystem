@@ -27,8 +27,6 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 				q.setLink(url.value.trim());
 				q.setImg("http://localhost/WebSite-CashierSystem/styles/imagenes/downloads/"+Img.files[0].name);
 				
-				console.log("\n\n"+q);
-				
 				q.edit();
 				
 				//Image.upload("http://localhost/WebSite-CashierSystem/styles/imagenes/downloads");
