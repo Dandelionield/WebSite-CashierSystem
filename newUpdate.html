@@ -10,6 +10,7 @@
 		<script src="javascript/conexion.js"></script>
 		<script src="javascript/update.js"></script>
 		<script src="javascript/newUpdate.js"></script>
+		<script src="javascript/ImageUploader.js"></script>
 		
 		<script src="javascript/scripts.js"></script>
 
@@ -40,7 +41,7 @@
 
 		<main>
 		
-			<form action="" method="post">
+			<form id = "CRUD">
 			
 				<fieldset class = "form">
 					
@@ -52,7 +53,7 @@
 						
 						<div class="input-wrapper">
 							
-							<input class = "input-update" type = "text" name = "ID" id = "ID" placeholder = "ID" required>
+							<input class = "input-update" type = "text" name = "ID" id = "ID" placeholder = "ID">
 							<span class="title-border"></span>
 						
 						</div>
@@ -79,7 +80,7 @@
 						
 						<div class="input-wrapper">
 							
-							<input class = "input-update" type = "file" name = "Img" id = "Img" required>
+							<input class = "input-update" type = "file" accept="image/*" name = "Img" id = "Img" required>
 						
 						</div>
 						
@@ -109,6 +110,8 @@
 			Contenido del sitio 2024&copy; Derechos reservados para presentacion de proyecto de aula.
 			
 		</footer>
+		
+		<script src="javascript/newUpdate_CRUD.js"></script>
 
 	</body>
 

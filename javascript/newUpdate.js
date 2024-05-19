@@ -49,35 +49,3 @@ document.addEventListener('DOMContentLoaded', (event) =>{
     });
 	
 });
-
-document.getElementById('miFormulario').addEventListener('submit', function(event) {
-
-    event.preventDefault();
-
-	const id = document.getElementById('ID');
-    const date = document.getElementById('Date');
-	const description = document.getElementById('Description');
-	const url = document.getElementById('URL');
-	const Img = document.getElementById('Img');
-
-    if (!(id.value.trim()==='' description.value.trim()==='' url.value.trim()==='' || dateInput.value==='' || Img.files.length===0)){
-		
-		update.get(id, (q) =>{
-			
-			if (q){
-				
-				
-				
-			}else{
-				
-				
-				
-			}
-			
-		});
-		
-		//this.submit();
-		
-    }
-	
-});

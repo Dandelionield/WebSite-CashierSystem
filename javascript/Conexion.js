@@ -1,17 +1,37 @@
 
 class Conexion{
 	
-    constructor(url){
+    constructor(inURL, outURL){//outConexion
 		
-        this.url = url;
+        this._inURL = inURL;
+		this._outURL = outURL;
 		
     }
 
     // Método para ejecutar consultas SQL
-    query(wd, callback){
+	
+	query(wd){
+        // Realizar una solicitud POST al script PHP con la consulta SQL
+        fetch(this._outURL,{
+			
+            method: 'POST',
+            headers:{
+				
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },body: 'query=' + encodeURIComponent(wd)
+			
+        }).catch(e =>{
+			
+            console.error('Error:', e);
+			
+        });
+		
+    }
+	
+    queryGetter(wd, callback){
 		
         // Realizar una solicitud POST al script PHP con la consulta SQL
-        fetch(this.url,{
+        fetch(this._inURL,{
 			
             method: 'POST',
             headers: {
@@ -33,12 +53,12 @@ class Conexion{
 			
         });
 		
-    }
+    }//*/
 
     // Método para ejecutar consultas SQL y obtener los resultados en un vector
 	sentence(wd, callback){
 		
-        this.query(wd, function(data){
+        this.queryGetter(wd, function(data){
 			
             // Convertir los resultados a un vector de filas
             let rows = [];

@@ -3,13 +3,14 @@
 //import Conexion from './Conexion.js';
 
 const row = "download";
-const bd = "http://localhost/WebSite-CashierSystem/php/Conexion.php";
+const In = "http://localhost/WebSite-CashierSystem/php/Conexion.php";
+const Out = "http://localhost/WebSite-CashierSystem/php/outConexion.php";
 
 class update extends Conexion {
 
 	constructor(ID, date, description, Link, img) {
 
-		super(bd);
+		super(In, Out);
 
 		//super('localhost', 'root', '', 'proyecto');
 
@@ -23,7 +24,7 @@ class update extends Conexion {
 
 	static get(ID, callback) {
 
-		const cn = new Conexion(bd);
+		const cn = new Conexion(In, Out);
 
 		cn.sentence("SELECT * FROM `" + row + "` WHERE ID = '" + ID + "'", (q) => {
 
@@ -37,7 +38,7 @@ class update extends Conexion {
 
 	static getAll(callback) {
 
-		const cn = new Conexion(bd);
+		const cn = new Conexion(In, Out);
 
 		cn.sentence("SELECT * FROM `" + row + "`", (q) => {
 
@@ -88,23 +89,13 @@ class update extends Conexion {
 		return this._img;
 
 	}
-
-	/*set(){
+	
+	setDate(date){
 		
-		const dd = this._date.getDate();
-		const mm = this._date.getMonth() + 1;
-		const yyyy = this._date.getDate();
-		
-		this.query("INSERT INTO `"+row+"`(`ID`, `date`, `description`, `Link`) VALUES ('"+this._ID+"', STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyy+"', '%d-%m-%Y'), '"+this._description+"', '"+this._Link+"')");
+		this._date = date;
 		
 	}
 	
-	remove(){
-		
-		this.query("DELETE FROM `"+row+"` WHERE ID = '"+this._ID+"'");
-		
-	}//*/
-
 	setDescription(description) {
 
 		this._description = description;
@@ -116,6 +107,86 @@ class update extends Conexion {
 		this._Link = Link;
 
 	}
+	
+	setImg(img){
+		
+		this._img = img;
+		
+	}
+	
+	edit(){
+		
+		const dd = this._date.getDate();
+		const mm = this._date.getMonth() + 1;
+		const yyyy = this._date.getDate();
+		
+		this.query("UPDATE `"+row+"` SET `date` = 'STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyyy+"', '%d-%m-%Y')', `description` = '"+this._description+"', `Link` = '"+this._Link+"', `img` = '"+this._img+"' WHERE ID = '"+this._ID+"'");
+		
+	}
+	
+	set(){
+		
+		const dd = this._date.getDate();
+		const mm = this._date.getMonth() + 1;
+		const yyyy = this._date.getDate();
+		
+		this.query("INSERT INTO `"+row+"`(`ID`, `date`, `description`, `Link`, `img`) VALUES ('"+this._ID+"', STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyy+"', '%d-%m-%Y'), '"+this._description+"', '"+this._Link+"', '"+this._img+"')");
+		
+	}
+	
+	remove(){
+		
+		this.query("DELETE FROM `"+row+"` WHERE ID = '"+this._ID+"'");
+		
+	}
+	
+	/*async edit(){
+		
+        try{
+			
+			const dd = this._date.getDate();
+			const mm = this._date.getMonth() + 1;
+			const yyyy = this._date.getDate();
+			
+			await this.query("UPDATE `"+row+"` SET date = `STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyyy+"', '%d-%m-%Y')`, description = `"+this._description+"`, Link = `"+this._Link+"`, img = `"+this._img+"` WHERE ID = `"+this._ID+"`");
+			
+		}catch (e){
+			
+			console.log(e);
+			
+		}
+		
+    }
+	
+	async set(){
+		
+        try{
+			
+			const dd = this._date.getDate();
+			const mm = this._date.getMonth() + 1;
+			const yyyy = this._date.getDate();
+			
+			await this.query("INSERT INTO `"+row+"`(`ID`, `date`, `description`, `Link`, `img`) VALUES ('"+this._ID+"', STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyy+"', '%d-%m-%Y'), '"+this._description+"', '"+this._Link+"', '"+this._img+"')");
+           
+        }catch (e){
+			
+            console.error(error);
+			
+        }
+    }
+	
+	async remove(){
+		
+        try{
+			
+            await this.query("DELETE FROM `"+row+"` WHERE ID = '"+this._ID+"'");
+			
+        }catch (e){
+			
+            console.error(e);
+			
+        }
+    }//*/
 
 	/*length(){
 		

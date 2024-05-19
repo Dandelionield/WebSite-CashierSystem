@@ -16,16 +16,10 @@ header {
     box-sizing:border-box;
     display:flex;
     align-items:center;
-    justify-content: flex-start;
+    justify-content:space-between;
 	width: 100%;
 	margin-top: -50px;
     position: fixed;
-}
-
-header a {
-    height: 100%;
-    display: flex;
-    align-items: center;
 }
 
 header button {
@@ -101,52 +95,32 @@ p {
 	font-size: 20;
 }
 
-article {
-    padding: 20px;
-	background-color: var(--complementary);
-    background-image: url("imagenes/test.png");
-}
-
-article h1, article h2 {
-	color: var(--primary);
-}
-
-.form input {
+/*input {
 	width: 100%;
     height: 40px;
 	outline: none;
 	box-sizing: border-box;
 }
 
-.form input[type=submit] {
+input[type=submit] {
 	background-color: var(--primary);
 	color: white;
 }
 
-.form input[type=text], 
-.form input[type=email], 
-.form input[type=password] {
+input[type=text], input[type=email], input[type=password] {
     border: none;
 	border-bottom: 2px solid gray;
 }
 
-.form input[type=text]:focus, 
-.form input[type=email]:focus, 
-.form input[type=password]:focus {
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
 	transition: 0.3s;
 	border-color: var(--primary);
 }*/
 
-form {
+table {
 	width: 500px;
 	border: 1px solid var(--primary);
 	background-color: white;
-}
-
-table {
-    background-color: white;
-    border: 1px solid;
-	width: 500px
 }
 
 th:hover {
@@ -155,7 +129,7 @@ th:hover {
 	color: white;
 }
 
-.form {
+/*form {
     background-color: white;
     border-radius: 12px;
     border: 2px solid var(--primary);
@@ -168,7 +142,7 @@ th:hover {
     align-items: center;
 	box-sizing: border-box;
 	gap: 10px;
-}
+}*/
 
 @keyframes slideIn {
     from {
