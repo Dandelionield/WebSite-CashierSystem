@@ -3,7 +3,7 @@
 //import Conexion from './Conexion.js';
 
 const row = "download";
-const In = "http://localhost/WebSite-CashierSystem/php/Conexion.php";
+const In = "http://localhost/WebSite-CashierSystem/php/inConexion.php";
 const Out = "http://localhost/WebSite-CashierSystem/php/outConexion.php";
 
 class update extends Conexion {
@@ -120,7 +120,7 @@ class update extends Conexion {
 		const mm = this._date.getMonth() + 1;
 		const yyyy = this._date.getDate();
 		
-		this.query("UPDATE `"+row+"` SET `date` = 'STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyyy+"', '%d-%m-%Y')', `description` = '"+this._description+"', `Link` = '"+this._Link+"', `img` = '"+this._img+"' WHERE ID = '"+this._ID+"'");
+		this.query("UPDATE `"+row+"` SET `date` = STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyyy+"', '%d-%m-%Y'), `description` = '"+this._description+"', `Link` = '"+this._Link+"', `img` = '"+this._img+"' WHERE ID = '"+this._ID+"'");
 		
 	}
 	
