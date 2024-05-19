@@ -9,7 +9,6 @@
 
 		<script src="javascript/conexion.js"></script>
 		<script src="javascript/update.js"></script>
-		<script src="javascript/newUpdate.js"></script>
 		<script src="javascript/ImageUploader.js"></script>
 		
 		<script src="javascript/scripts.js"></script>
@@ -63,7 +62,18 @@
 					
 					<div>
 					
-						<h4></h4>
+						<h4>CRUD</h4>
+						
+						<div class="input-wrapper">
+						
+							<div class = "input-buttons">
+								
+								<button type="button" class = "input-submit" name = "Edit" id = "Edit" disabled>Editar</button>
+								<button type="button" class = "input-submit" name = "Remove" id = "Remove" disabled>Eliminar</button>
+								
+							</div>
+						
+						</div>
 						
 						<div class="input-wrapper">
 							
@@ -100,7 +110,12 @@
 						
 						<div class="input-wrapper">
 						
-							<input class = "input-submit" type = "submit" name = "Submit" id = "Submit">
+							<div class = "input-buttons">
+						
+								<input class = "input-submit" type = "submit" name = "Submit" id = "Submit">
+								<button type="button" class = "input-submit" name = "Delete" id = "Delete">Cancelar</button>
+								
+							</div>
 						
 						</div>
 						
@@ -125,6 +140,7 @@
 			
 		</footer>
 		
+		<script src="javascript/newUpdate.js"></script>
 		<script src="javascript/newUpdate_CRUD.js"></script>
 
 	</body>

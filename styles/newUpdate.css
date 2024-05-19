@@ -16,6 +16,7 @@
 	
 	font-size: 20px;
 	margin-bottom: 20px;
+	margin-top: 15%;
 	text-align: center;
 	
 }
@@ -32,12 +33,20 @@
 	
 }
 
+.form .input-buttons{
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+}
+
 .form .input-submit{
 	
+	width: 40%;
 	color: white;
 	font-size: 15px;
 	border: gray 2px inset;
-	margin-top: 15%;
 	margin-left: 4%;
 	
 }
@@ -62,7 +71,6 @@
 	color: white;
 	font-size: 15px;
 	border: gray 2px inset;
-	margin-top: 15%;
 	background-color: rgb(32, 62, 100);
 	
 }
@@ -79,3 +87,9 @@
     display: block;
 	
 }
+
+/*#Edit, #Remove{
+	
+	visibility: hidden;
+	
+}*/

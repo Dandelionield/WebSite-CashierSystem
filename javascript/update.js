@@ -28,9 +28,16 @@ class update extends Conexion {
 
 		cn.sentence("SELECT * FROM `" + row + "` WHERE ID = '" + ID + "'", (q) => {
 
-			const p = new update(q[0][0], new Date(q[0][1]), q[0][2], q[0][3], q[0][4]);
-			//cn.end();
-			callback(p);
+			if (q.length === 0) {
+
+				callback(null);
+				
+			}else{
+				
+				const p = new update(q[0][0], new Date(q[0][1]), q[0][2], q[0][3], q[0][4]);
+				callback(p);
+				
+			}
 
 		});
 
@@ -130,7 +137,14 @@ class update extends Conexion {
 		const mm = this._date.getMonth() + 1;
 		const yyyy = this._date.getDate();
 		
-		this.query("INSERT INTO `"+row+"`(`ID`, `date`, `description`, `Link`, `img`) VALUES ('"+this._ID+"', STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyy+"', '%d-%m-%Y'), '"+this._description+"', '"+this._Link+"', '"+this._img+"')");
+		/*const formattedDate = `${yyyy}-${mm < 10 ? "0" + mm : mm}-${dd < 10 ? "0" + dd : dd}`;
+
+        const query = `INSERT INTO \`${row}\` (\`ID\`, \`date\`, \`description\`, \`Link\`, \`img\`) 
+                        VALUES ('${this._ID}', STR_TO_DATE('${formattedDate}', '%Y-%m-%d'), '${this._description}', '${this._Link}', '${this._img}')`;
+
+        this.query(query);//*/
+		
+		this.query("INSERT INTO `"+row+"`(`ID`, `date`, `description`, `Link`, `img`) VALUES ('"+this._ID+"', STR_TO_DATE('"+(dd<10 ? "0"+dd : dd+"")+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+yyyy+"', '%d-%m-%Y'), '"+this._description+"', '"+this._Link+"', '"+this._img+"')");
 		
 	}
 	

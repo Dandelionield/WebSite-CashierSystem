@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', function (){
 document.addEventListener('DOMContentLoaded', (event) =>{
 	
     const ID = document.getElementById('ID');
+	const date = document.getElementById('Date');
+	const description = document.getElementById('Description');
+	const url = document.getElementById('URL');
+	const Img = document.getElementById('Img');
+	
+	const Edit = document.getElementById('Edit');
+	const Remove = document.getElementById('Remove');
 
     ID.addEventListener('input', (event) => {
 		
@@ -42,10 +49,47 @@ document.addEventListener('DOMContentLoaded', (event) =>{
 				description.value = q.getDescription();
 				url.value = q.getLink();
 				
+				ID.readOnly = true;
+				date.readOnly = true;
+				description.readOnly = true;
+				url.readOnly = true;
+				Img.readOnly = true;
+				
+				Edit.disabled = false;
+				Remove.disabled = false;
+				
 			}
 			
 		});
 		
     });
+	
+});
+
+document.getElementById('Delete').addEventListener('click', function(){
+	
+	let inputs = document.querySelectorAll('.input-update');
+	
+	const Edit = document.getElementById('Edit');
+	const Remove = document.getElementById('Remove');
+
+	inputs.forEach(input =>{
+		
+		input.readOnly = false;
+		input.value = '';
+		
+	});
+	
+	let inputs2 = document.querySelectorAll('.input-date');
+
+	inputs2.forEach(input2 =>{
+		
+		input2.readOnly = false;
+		input2.value = '';
+		
+	});
+	
+	Edit.disabled = true;
+	Remove.disabled = true;
 	
 });
