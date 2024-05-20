@@ -6,8 +6,7 @@
 	padding: 0;
 	max-width: 100%;
 	overflow-x: hidden;
-	background-color: rgb(38, 40, 46);
-	color: white;
+	color: black;
 	font-family: "Helvetica", sans-serif;
 
 }
@@ -112,7 +111,7 @@ fieldset {
 	background: rgb(0, 0, 0, 0);
 	padding: 10px;
 	margin-bottom: 20px;
-	color: white;
+	color: black;
 	resize: none;
 
 }
@@ -134,7 +133,7 @@ fieldset {
 .input:hover,
 .input-submit:hover {
 
-	background-color: rgb(63, 66, 77);
+	background-color: rgb(247, 250, 252);/*210, 231, 250*/
 
 }
 
@@ -167,8 +166,8 @@ footer {
 
 }
 
-.hf{
+./*hf{
 
 	background-color: rgb(63, 66, 77);
 
-}
+}*/

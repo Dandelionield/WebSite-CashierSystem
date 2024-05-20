@@ -83,19 +83,19 @@ button {
 	transition: 0.3s;
 }
 
-/*button:hover {
+aside button:hover {
 	background-color: white;
 	color: var(--primary);
 	border: 2px solid var(--primary);
 	transition: 0.3s;
 }
 
-button:active {
+aside button:active {
 	background-color:var(--secundary);
 	color: var(--primary);
 	border: 2px solid var(--primary);
 	transition: 0.3s;
-}*/
+}
 
 p {
 	font-size: 20;

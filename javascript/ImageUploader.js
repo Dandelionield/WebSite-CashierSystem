@@ -1,60 +1,35 @@
 
 class ImageUploader{
 	
-    constructor(Img){
-		
-        this._data = new FormData();
-		
-		this._data.delete('Img');
-        this._data.append('Img', Img);
+    constructor(file, name) {
+        
+		this._file = file;
+		this._name = name;
 		
     }
 
-    setImage(Img){
-		
-        this._data.delete('Img');
-        this._data.append('Img', Img);
-		
-    }
+    upload() {
+        const formData = new FormData();
+        formData.append('image', this._file);
+		formData.append('fileName', this._name);
 
-    upload(url){
+        fetch('http://localhost/WebSite-CashierSystem/php/ImageUploader.php',{
+			
+            method: 'POST',
+            body: formData
+			
+        }).then(
 		
-        return new Promise((resolve, reject) =>{
+			response => response.json()
 			
-            if (!url){
+		).then(data =>{
 			
-                reject('La URL de destino no está especificada.');
-                return;
-				
-            }
-
-            fetch(url,{
-				
-                method: 'POST',
-                body: this._data
-				
-            }).then(response =>{
-				
-                if (!response.ok){
-					
-                    throw new Error('La solicitud no se completó correctamente.');
-					
-                }
-				
-                return response.json();
-				
-            }).then(data =>{
-				
-                resolve(data);
-				
-            }).catch(error =>{
-				
-                reject(error);
-				
-            });
+            
+			
+        }).catch(e =>{
+			
+            console.error('Error uploading image:', e);
 			
         });
-		
     }
-	
 }

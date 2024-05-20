@@ -29,7 +29,7 @@
 	background: rgb(0, 0, 0, 0);
 	padding: 10px;
 	margin-bottom: 20px;
-	color: white;
+	color: black;
 	
 }
 
@@ -44,7 +44,7 @@
 .form .input-submit{
 	
 	width: 40%;
-	color: white;
+	color: black;
 	font-size: 15px;
 	border: gray 2px inset;
 	margin-left: 4%;
@@ -57,8 +57,8 @@
     position: absolute;
     top: -18px;
     left: 5px;
-    background-color: rgb(20, 35, 54);
-    color: gray; 
+    background-color: rgb(210, 231, 250);
+    color: black; 
     padding: 5px 10px;
     border-radius: 5px;
 	border: white 1px solid;
@@ -68,17 +68,17 @@
 
 .form .input-submit:hover{
 	
-	color: white;
+	color: black;
 	font-size: 15px;
 	border: gray 2px inset;
-	background-color: rgb(32, 62, 100);
+	background-color: rgb(210, 231, 250);
 	
 }
 
 .form .input-update:hover, .form .input-date:hover{
 	
-	border-color: white;
-	background-color: rgb(32, 62, 100);
+	border-color: black;
+	background-color: rgb(210, 231, 250);
 	
 }
 

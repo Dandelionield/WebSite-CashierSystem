@@ -14,7 +14,7 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
     if (id.value.trim()!=='' || description.value.trim()!=='' || url.value.trim()!=='' || date.value!=='' || Img.files.length!==0){
 		
 		let dmy = new Date(date.value);
-		let Image = new ImageUploader(Img.files[0]);
+		let Image = new ImageUploader(Img.files[0], Img.files[0].name);
 		
 		dmy.setDate(dmy.getDate() + 1);
 		
@@ -29,11 +29,11 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 				
 				q.edit();
 				
-				//Image.upload("http://localhost/WebSite-CashierSystem/styles/imagenes/downloads");
+				Image.upload();
 				
 			}else{
 				
-				let p = new update(//ID, date, description, Link, img
+				let p = new update(
 				
 					id.value.trim()+"", 
 					dmy, description.value.trim()+"", 
@@ -44,7 +44,7 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 				
 				p.set();
 				
-				//Image.upload("http://localhost/WebSite-CashierSystem/styles/imagenes/downloads");
+				Image.upload();
 				
 			}
 			
