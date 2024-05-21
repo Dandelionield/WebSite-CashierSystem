@@ -26,6 +26,7 @@ header a {
     height: 100%;
     display: flex;
     align-items: center;
+	text-decoration: none;
 }
 
 header button {
@@ -83,14 +84,14 @@ button {
 	transition: 0.3s;
 }
 
-aside button:hover {
+button:hover {
 	background-color: white;
 	color: var(--primary);
 	border: 2px solid var(--primary);
 	transition: 0.3s;
 }
 
-aside button:active {
+button:active {
 	background-color:var(--secundary);
 	color: var(--primary);
 	border: 2px solid var(--primary);
@@ -117,17 +118,16 @@ table {
 	width: 500px
 }
 
-th:hover {
+th {
+	overflow-wrap: break-word;
+    max-width: 200px;
+}
+
+tr:hover {
 	background-color: var(--primary);
 	cursor: pointer;
 	color: white;
 }
-
-/*form {
-	width: 500px;
-	border: 1px solid var(--primary);
-	background-color: white;
-}*/
 
 @keyframes slideIn {
     from {
