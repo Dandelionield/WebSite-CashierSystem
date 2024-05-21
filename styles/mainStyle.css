@@ -45,7 +45,8 @@ body{
 	margin-top: 50px !important;
 }
 
-footer {
+footer{
+	
 	background-color:var(--secundary);
 	color:white;
 	box-sizing:border-box;
@@ -53,6 +54,7 @@ footer {
     flex-direction: column;
     align-items: center;
 	padding: 10px;
+
 }
 
 aside {

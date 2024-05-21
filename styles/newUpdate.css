@@ -8,7 +8,9 @@
 
 .form .input-wrapper{
 	
-    position: relative;
+	display: flex;
+    justify-content: center;
+    align-items: center; /* Centrado vertical */
 	
 }
 
@@ -85,6 +87,14 @@
 .form .input-update:not(:placeholder-shown) + .title-border{
 	
     display: block;
+	
+}
+
+.form .input-wrapper img{
+	
+	max-width: 300px;
+    max-height: 200px;
+	margin-bottom: 20px;
 	
 }
 

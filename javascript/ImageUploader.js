@@ -8,7 +8,8 @@ class ImageUploader{
 		
     }
 
-    upload() {
+    upload(){
+		
         const formData = new FormData();
         formData.append('image', this._file);
 		formData.append('fileName', this._name);
@@ -31,5 +32,7 @@ class ImageUploader{
             console.error('Error uploading image:', e);
 			
         });
+		
     }
+	
 }

@@ -8,13 +8,14 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 	const description = document.getElementById('Description');
 	const url = document.getElementById('URL');
 	const Img = document.getElementById('Img');
+	const preview = document.getElementById('preview');
 	
 	const Delete = document.getElementById('Delete');
 
-    if (id.value.trim()!=='' || description.value.trim()!=='' || url.value.trim()!=='' || date.value!=='' || Img.files.length!==0){
+    if (id.value.trim()!=='' || description.value.trim()!=='' || url.value.trim()!=='' || date.value!=='' || Img.files.length!==0 || preview.getAttribute('src').trim()!==''){
 		
 		let dmy = new Date(date.value);
-		let Image = new ImageUploader(Img.files[0], Img.files[0].name);
+		let Image;
 		
 		dmy.setDate(dmy.getDate() + 1);
 		
@@ -25,11 +26,18 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 				q.setDate(dmy);
 				q.setDescription(description.value.trim());
 				q.setLink(url.value.trim());
-				q.setImg("http://localhost/WebSite-CashierSystem/styles/imagenes/downloads/"+Img.files[0].name);
+				
+				if (preview.getAttribute('src')!==q.getImg()){
+					
+					q.setImg("http://localhost/WebSite-CashierSystem/styles/imagenes/downloads/"+Img.files[0].name);
+					
+					Image = new ImageUploader(Img.files[0], Img.files[0].name);
+					
+					Image.upload();
+					
+				}
 				
 				q.edit();
-				
-				Image.upload();
 				
 			}else{
 				
@@ -43,6 +51,8 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 				);
 				
 				p.set();
+				
+				Image = new ImageUploader(Img.files[0], Img.files[0].name);
 				
 				Image.upload();
 				
@@ -60,7 +70,6 @@ document.getElementById('CRUD').addEventListener('submit', function(event) {
 
 document.getElementById('Edit').addEventListener('click', function(){
 	
-	const ID = document.getElementById('ID');
 	const date = document.getElementById('Date');
 	const description = document.getElementById('Description');
 	const url = document.getElementById('URL');
@@ -68,11 +77,10 @@ document.getElementById('Edit').addEventListener('click', function(){
 	
 	const Remove = document.getElementById('Remove');
 	
-	ID.readOnly = false;
 	date.readOnly = false;
 	description.readOnly = false;
 	url.readOnly = false;
-	Img.readOnly = false;
+	Img.disabled = false;
 	
 	Remove.disabled = true;
 	

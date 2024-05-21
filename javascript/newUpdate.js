@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', (event) =>{
 	const description = document.getElementById('Description');
 	const url = document.getElementById('URL');
 	const Img = document.getElementById('Img');
+	const preview = document.getElementById('preview');
 	
 	const Edit = document.getElementById('Edit');
 	const Remove = document.getElementById('Remove');
@@ -48,12 +49,13 @@ document.addEventListener('DOMContentLoaded', (event) =>{
 				date.value = yyyy+"-"+(mm<10 ? "0"+mm : mm+"")+"-"+(dd<10 ? "0"+dd : dd+"");
 				description.value = q.getDescription();
 				url.value = q.getLink();
+				preview.src = q.getImg();
 				
 				ID.readOnly = true;
 				date.readOnly = true;
 				description.readOnly = true;
 				url.readOnly = true;
-				Img.readOnly = true;
+				Img.disabled = true;
 				
 				Edit.disabled = false;
 				Remove.disabled = false;
@@ -70,8 +72,11 @@ document.getElementById('Delete').addEventListener('click', function(){
 	
 	let inputs = document.querySelectorAll('.input-update');
 	
+	const preview = document.getElementById('preview');
+	
 	const Edit = document.getElementById('Edit');
 	const Remove = document.getElementById('Remove');
+	
 
 	inputs.forEach(input =>{
 		
@@ -91,5 +96,28 @@ document.getElementById('Delete').addEventListener('click', function(){
 	
 	Edit.disabled = true;
 	Remove.disabled = true;
+	
+	preview.src = '';
+	
+});
+
+document.getElementById('Img').addEventListener('change', function(event){
+	
+    const file = event.target.files[0];
+	
+    if (file){
+		
+        const reader = new FileReader();
+		
+        reader.onload = function(e){
+			
+            const preview = document.getElementById('preview');
+            preview.src = e.target.result;
+			
+        }
+        
+        reader.readAsDataURL(file);
+		
+    }
 	
 });
