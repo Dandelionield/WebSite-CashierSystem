@@ -83,20 +83,21 @@ update.getAll((p) =>{
 							
 							</h4>
 							
-							<form>
+							<form action="php/comment.php" method="post">
 					
 								<fieldset class = "form">
 									
 									<div>
+										<input class="input" type="hidden" name="version" value="${id}">
 									
 										<textarea class = "input" type = "text" name = "Comment" id = "Comment" placeholder = "Comentario"></textarea>
 									
 										<div>
-										
-											<input class = "input-submit" type = "submit" name = "Submit" id = "Submit" value = "Comentar">
-											
-											<button type="button" class = "input-submit" name = "Delete" id = "Delete">Cancelar</button>
-										
+
+											<input class = "input-submit" type = "submit" value = "Comentar">
+
+											<button type="button" class = "input-submit" id = "Delete">Cancelar</button>
+
 										</div>
 										
 									</div>

@@ -14,7 +14,16 @@
             ) or die(mysqli_error($connection_obj));
 
     if(count(mysqli_fetch_array($users, MYSQLI_BOTH)) > 0) {
-        echo 'logeado!';
+        mysqli_query(
+            $connection_obj, "UPDATE users SET active=0 WHERE active=1;"
+        ) or die(mysqli_error($connection_obj));
+
+        mysqli_query(
+            $connection_obj, "UPDATE users SET active=1 WHERE email='" . $email . "';"
+        ) or die(mysqli_error($connection_obj));
+        
+        header('location: ../main.html');
+        die();
     } else {
         echo 'usuario no existe';
     }

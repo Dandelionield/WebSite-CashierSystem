@@ -5,30 +5,31 @@
 		<link rel="stylesheet" href="styles/mainStyle.css">
 		<link rel="stylesheet" media="screen" href="styles/BoxStyle.css">
 		<link rel="stylesheet" media="screen" href="styles/style.css">
-		<title>C-Cash</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<title>CashierSystem | Principal</title>
+		<link rel="icon" href="styles/imagenes/Icono.png">
 	</head>
 	
 	<body>
 		<script src="javascript/scripts.js"></script>
-		<script src="javascript/table.js"></script>
 
 		<!--Encabezado-->
-		<header>
+		<header id="header">
 			<img src="styles/imagenes/menu.png" alt="menu" onclick="openAside();">
 			<a href="main.html">
 				<img src="styles/imagenes/logo.png" alt="logo">
-			</a>
-			<a href="#documentacion">
-				<button type="button">Documentación</button>
-			</a>
-			<a href="#imagenes">
-				<button type="button">Imagenes</button>
 			</a>
 			<a href="login.html">
 				<button>Iniciar Sesión</button>
 			</a>
 			<a href="register.html">
 				<button type="button">Registrarse</button>
+			</a>
+			<a href="#imagenes">
+				<button type="button">Imagenes</button>
+			</a>
+			<a href="#documentacion">
+				<button type="button">Documentación</button>
 			</a>
 		</header>
 		
@@ -37,23 +38,17 @@
 			<a href="main.html">
 				<button type="button">Inicio</button>
 			</a>
+			<a href="downloads.html">
+				<button type="button">Descargar</button>
+			</a>
 			<a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
 				<button type="button">Documentacion</button>
 			</a>
-			<a href="downloads.html">
-				<button type="button">Actualizaciones</button>
-			</a>
-			<a href="downloads.html">
-				<button type="button">Versiones</button>
-			</a>
-			<a href="table.html">
-				<button type="button">Tabla</button>
+			<a href="feedback.html">
+				<button type="button">Feedback</button>
 			</a>
 			<a href="about_us.html">
 				<button type="button">Sobre Nosotros</button>
-			</a>
-			<a href="feedback.html">
-				<button type="button">Feedback</button>
 			</a>
 		</aside>
 		
@@ -61,7 +56,7 @@
 		<div class="box1" >
 			<img src="styles/imagenes/Icono.png" alt="Documentación">
 			<div class="sub_box1">
-				<h1>C-Cash</h1>
+				<h1>CashierSystem</h1>
 				
 				<p>
 					En VC Company, creemos que la eficiencia y la confiabilidad son la columna vertebral de 
@@ -82,15 +77,15 @@
 					<li>
 						<b>Registro de Ventas:</b> Capture y organice todas sus ventas con facilidad, permitiendo
 						un seguimiento en tiempo real de su flujo de ingresos.
-					</li><br><br>
+					</li><br>
 					<li>
 						<b>Gestión de Inventario:</b> Mantenga el control de su stock con herramientas intuitivas 
 						que minimizan el riesgo de errores y pérdidas. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, sint possimus saepe doloribus non consectetur qui perspiciatis sed, obcaecati velit ab hic vel. Dicta asperiores labore aliquam necessitatibus reiciendis recusandae?
-					</li><br><br>
+					</li><br>
 					<li>
 						<b>Soporte Técnico:</b> Nuestro equipo de expertos está siempre disponible para asistirle
 						con cualquier consulta o necesidad técnica. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum molestias esse itaque iure, adipisci accusamus numquam nisi nihil, quidem doloremque maxime, aliquid optio repellendus at praesentium eius dignissimos debitis deserunt!
-					</li><br><br>
+					</li><br>
 					<li>
 						<b>Gestión de productos:</b> Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
 						Nulla expedita dolor molestiae fuga odit deserunt perferendis quas dolore iusto maiores.
@@ -106,18 +101,8 @@
 				
 				<div>
 					<button type="buttom">Descargar</button>
-					<button type="buttom">Versiones</button>
 				</div>
 			</div>
-		</div>
-		
-		<!--Documentación-->
-		<div class="box2" id="documentacion">
-			<h1>Documentación</h1>
-			
-			<iframe src="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing"></iframe>
-
-			<button type="button">Descargar</button>
 		</div>
 		
 		<!--Imagenes-->
@@ -142,6 +127,15 @@
 			Registra nuevos productos y gestiona con eficiencia.
 			Administra tu personal.
 			Elige tu estilo favorito con 4 combinaciones distintas.
+		</div>
+
+		<!--Documentación-->
+		<div class="box2" id="documentacion">
+			<h1>Documentación</h1>
+			
+			<iframe src="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing"></iframe>
+
+			<button src="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing" type="button">Ver</button>
 		</div>
 		
 		<!--footer-->
