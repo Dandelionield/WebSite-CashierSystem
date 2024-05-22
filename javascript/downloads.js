@@ -1,12 +1,27 @@
-/*const { update } = require('./update.js');
 
-const p = update.get("1.4.8");
+const cn = new Conexion("http://localhost/WebSite-CashierSystem/php/inConexion.php", "http://localhost/WebSite-CashierSystem/php/outConexion.php");
 
-console.log(p.toString());
+/*cn.sentence("SELECT * FROM `" + row + "` WHERE ID = '" + ID + "'", (q) => {
 
-p.end();//*/
+	if (q.length !== 0){
+		
+		const p = new update(q[0][0], new Date(q[0][1]), q[0][2], q[0][3], q[0][4]);
+		callback(p);
+		
+	}
 
-//import update from './update.js';
+});//*/
+
+const header = document.querySelector('header');
+const a = document.createElement('a');
+a.href = 'newUpdate.html';
+
+const img = document.createElement('img');
+img.src = 'styles/imagenes/add.png';
+img.alt = 'logo';
+
+a.appendChild(img);
+header.appendChild(a);
 
 update.getAll((p) =>{
 	
