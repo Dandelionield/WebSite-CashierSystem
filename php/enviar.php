@@ -1,5 +1,4 @@
 
-
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
@@ -9,7 +8,7 @@
 		<title>C-Cash</title>
 	</head>
 	<body>
-		<!--<script src="../javascript/scripts.js"></script>-->
+		<script src="../javascript/scripts.js"></script>
 
         <?php
             $email= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -119,82 +118,62 @@
 		<!--Encabezado-->
 		<header>
             <img src="../styles/imagenes/menu.png" alt="menu" onclick="openAside();">
-			<img src="../styles/imagenes/logo.png" alt="logo" onclick="go('main.html');">
-			<button>Iniciar Sesión</button>
-			<button onclick="go('register.html');">Registrarse</button>
+			<a href="../main.html">
+				<img src="../styles/imagenes/logo.png" alt="logo">
+			</a>
+			<a href="../login.html">
+				<button>Iniciar Sesión</button>
+			</a>
+			
 			
 		</header>
 		
 		<!--Aside-->
 		<aside id="aside">
-			<button type="button" onclick="go('main.html');">Inicio</button>
-			<button type="button">Documentacion</button>
-			<button type="button">Actualizaciones</button>
-			<button type="button">Versiones</button>
-			<button type="button" onclick="go('table.html');">Tabla</button>
-			<button type="button">Sobre Nosotros</button>
-			<button type="button">Feedback</button>
+        <a href="../main.html">
+            <button type="button">Inicio</button>
+        </a>
+        <a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
+            <button type="button">Documentacion</button>
+        </a>
+        <a href="../downloads.html">
+            <button type="button">Actualizaciones</button>
+        </a>
+        <a href="../downloads.html">
+            <button type="button">Versiones</button>
+        </a>
+        <a href="../table.html">
+            <button type="button">Tabla</button>
+        </a>
+        <a href="../about_us.html">
+            <button type="button">Sobre Nosotros</button>
+        </a>
+        <a href="../feedback.html">
+            <button type="button">Feedback</button>
+        </a>
 		</aside>
 
 		<!--contenido-->
-		<div class="box4">
-            <form class="form" style="height:400px">
-				<h2>verificar correo</h2>
+		<div class="box4" style="height: 80vh;">
+            <form method="post" action="confirmar.php" class="form" style="height:auto">
+				<h2>Informacion de usuario</h2>
 
 				<div class="field" >
 					<h3>
-                        se ha enviado un codigo a:
+                        Su informacion de usuario es la siguiente:
                     </h3>
                     <h4>
-                        <i style="color:black;"><?php echo $email; ?></i>
+                        nombre: <input name="usuario" type="text" value=<?php echo $usuario;?> readonly>
+                        correo:<input name="email" type="text" value=<?php echo $email;?> readonly>
+                        contraseña:<input name="contraseña" type="text" value=<?php echo $contraseña;?> readonly>
                     </h4><br>
-                    <h3>
-                        Por favor ingrese el codigo aqui
-                    </h3>
-					<input type="text" placeholder="X X X X X X X" id="code">
+
+                    se le envio un codigo de verificacion a su correo.
+
+                    <input style="visibility:hidden;height: 0;" name="vcode" type="number" value=<?php echo $VCode;?> readonly>
 				</div>
 
-				<button type="button"  id="sbmt">verificar</button>
-
-                <script>
-                    let submit = document.getElementById("sbmt");
-                    submit.addEventListener("click",()=>{
-
-                        let code = document.getElementById("code").value;
-                        let codigo = "<?php echo $VCode; ?>";
-
-                        if(code == codigo){
-                            
-                            <?php
-                            $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
-                            if (!$connection_obj) {
-                                echo "Error No: " . mysqli_connect_errno();
-                                echo "Error Description: " . mysqli_connect_error();
-                                exit;
-                            }
-                            
-                            // prepare the insert query 
-                            $query = "INSERT INTO `users` (`nickname`, `email`, `password`) VALUES ( '".$usuario."', '".$email."', '".$contraseña."');";
-                            // run the insert query 
-                            mysqli_query($connection_obj, $query);
-                            // close the db connection 
-                            mysqli_close($connection_obj);
-
-                            ?>
-
-                            let field= document.querySelector(".form");
-                            let segundos = 5;
-                            const intervalo = setInterval(() => {
-                                field.innerHTML="<h1>Registro Realizado con exito!</h1><br> redireccionando a la pagina principal... "+segundos+"s";
-                                segundos--;
-                                if (segundos < 0) {
-                                clearInterval(intervalo);
-                                location.replace("../main.html");
-                                }
-                            }, 1000);
-                        }
-                    });
-                </script>
+				<button type="submit"  id="sbmt">ingresar codigo</button>
 				
 				<div class="field2">
 					<a href="../main.html">volver</a>
@@ -213,6 +192,7 @@
 			<p><a href="">Conocenos</a> | <a href="">Términos y condiciones</a></p>
 	
 			Contenido del sitio 2024&copy; Derechos reservados para presentacion de proyecto de aula.
+            
 		</footer>
 	</body>
 </html>
