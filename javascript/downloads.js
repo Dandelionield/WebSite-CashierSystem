@@ -7,16 +7,20 @@ cn.sentence("SELECT * FROM `users` WHERE active = '1'", (q) => {
 
 		if (q.length !== 0){
 			
-			const header = document.querySelector('header');
-			const a = document.createElement('a');
-			a.href = 'newUpdate.html';
+			if (q[0][4]==1){
+			
+				const header = document.querySelector('header');
+				const a = document.createElement('a');
+				a.href = 'newUpdate.html';
 
-			const img = document.createElement('img');
-			img.src = 'styles/imagenes/add.png';
-			img.alt = 'logo';
+				const img = document.createElement('img');
+				img.src = 'styles/imagenes/add.png';
+				img.alt = 'logo';
 
-			a.appendChild(img);
-			header.appendChild(a);
+				a.appendChild(img);
+				header.appendChild(a);
+				
+			}
 			
 		}
 		
