@@ -35,7 +35,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet"  href="../styles/mainStyle.css">
 		<link rel="stylesheet"  href="../styles/BoxStyle.css">
-		<title>C-Cash</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<title>CashierSystem | Confirmar</title>
+        <link rel="icon" href="../styles/imagenes/Icono.png">
 	</head>
 	<body>
 		<script src="../javascript/scripts.js"></script>
@@ -61,13 +63,7 @@
             <button type="button">Documentacion</button>
         </a>
         <a href="../downloads.html">
-            <button type="button">Actualizaciones</button>
-        </a>
-        <a href="../downloads.html">
-            <button type="button">Versiones</button>
-        </a>
-        <a href="../table.html">
-            <button type="button">Tabla</button>
+            <button type="button">Descargar</button>
         </a>
         <a href="../about_us.html">
             <button type="button">Sobre Nosotros</button>

@@ -6,7 +6,9 @@
     <link rel="stylesheet" media="screen" href="../styles/mainStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../javascript/scripts.js"></script>
-    
+    <title>CashierSystem | Feedback</title>
+    <link rel="icon" href="../styles/imagenes/Icono.png">
+
 
 </head>
 

@@ -12,29 +12,32 @@ $.ajax({
     type: "GET",
     dataType: "json",
     success: function(user){
-        console.log(user.admin);
-        if (user.admin == 1) {
-            $("#aside").append(`
-                <a href="table.html">
-                    <button type="button">Tabla</button>
-                </a>
-                <a href="newUpdate.html">
-                    <button type="button">Agregar versión</button>
-                </a>
+        if(user != null) {
+            if (user.admin == 1) {
+                $("#aside").append(`
+                    <a href="table.html">
+                        <button type="button">Tabla</button>
+                    </a>
+                    <a href="newUpdate.html">
+                        <button type="button">Agregar versión</button>
+                    </a>
+                `);
+            }
+
+            $("#login").remove();
+            $("#register").remove();
+            $("#header").append(`
+                    <a href="user.html">
+                        <button type="button">${user.nickname}</button>
+                    </a>        
+                    <a href="php/signOff.php">
+                        <button type="button">Cerrar sesión</button>
+                    </a>
             `);
         }
-
-        $("#header").append(`
-                <a href="php/signOff.php">
-                    <button type="button">Cerrar sesión</button>
-                </a>
-                <h5 style="margin-left:10px;">
-                    ${user.nickname}
-                </h5>
-        `);
     },
     error: function(error){
-        alert("error");
+        
     }
 });
 
