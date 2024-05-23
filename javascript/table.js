@@ -33,6 +33,7 @@ function reloadTable() {
 				`<tr>
 					<th>id user</th>
 					<th>message</th>
+					<th>version</th>
 				</tr>`
 			);
 
@@ -40,6 +41,7 @@ function reloadTable() {
 				var fila = `<tr>
 								<th>${datas.id_user}</th>
 								<th>${datas.message}</th>
+								<th>${datas.version_id}</th>
 							</tr>`;
 
 				$("#table_feedback").append(fila);
