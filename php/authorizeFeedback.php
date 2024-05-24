@@ -12,9 +12,10 @@ $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
             MYSQLI_BOTH
         )["id"];
         $message= $_POST['message'];
+        $solicitud=$_POST['opcion'];
         
         // prepare the insert query 
-        $query = "INSERT INTO `feedback` (`id_user`, `message`) VALUES ('".$id."', '".$message."');";
+        $query = "INSERT INTO `feedback`(`id_user`, `message`, `solicitud`) VALUES ('".$id."','".$message."','".$solicitud."')";
         // run the insert query 
         mysqli_query($connection_obj, $query);
         // close the db connection 
@@ -134,6 +135,9 @@ $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
         
     </footer>
 
+
+
+</body></html>
 
 
 </body></html>
