@@ -5,7 +5,83 @@
     <link rel="stylesheet" media="screen" href="../styles/BoxStyle.css">
     <link rel="stylesheet" media="screen" href="../styles/mainStyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../javascript/scripts.js"></script>
+    <script >
+        let isOpen = false;
+
+function openAside() {
+    isOpen = !isOpen;
+    let x = document.getElementById("aside");
+
+    x.style = "animation: 0.5s " + (isOpen ? "slideIn" : "slideOut") + " forwards;";
+}
+
+$.ajax({
+    url: "logged.php",
+    type: "GET",
+    dataType: "json",
+    success: function(user){
+        if(user != null) {
+            if (user.admin == 1) {
+                $("#aside").append(`
+                    <a href="table.html">
+                        <button type="button">Tabla</button>
+                    </a>
+                    <a href="newUpdate.html">
+                        <button type="button">Agregar versión</button>
+                    </a>
+                `);
+            }
+
+            $("#login").remove();
+            $("#register").remove();
+            $("#header").append(`
+                    <a href="user.html">
+                        <button type="button">${user.nickname}</button>
+                    </a>        
+                    <a href="signOff.php">
+                        <button type="button">Cerrar sesión</button>
+                    </a>
+            `);
+        }
+    },
+    error: function(error){
+        
+    }
+});
+
+function signOff() {
+    $.ajax({
+        url: "signOff.php",
+        type: "GET",
+        dataType: "json",
+        success: function(user){
+            console.log(user.admin);
+            if (user.admin == 1) {
+                $("#aside").append(`
+                    <a href="table.html">
+                        <button type="button">Tabla</button>
+                    </a>
+                    <a href="newUpdate.html">
+                        <button type="button">Agregar versión</button>
+                    </a>
+                `);
+            }
+    
+            $("#header").append(`
+                    <a href="table.html">
+                        <button type="button">Cerrar sesión</button>
+                    </a>
+                    <h5>
+                        ${user.nickname}
+                    </h5>
+            `);
+        },
+        error: function(error){
+            alert("error");
+        }
+    });
+}
+    </script>
     <title>CashierSystem | Feedback</title>
     <link rel="icon" href="../styles/imagenes/Icono.png">
 
@@ -85,7 +161,7 @@
         <a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
             <button type="button">Documentacion</button>
         </a>
-        <a href="../feedback.html">
+        <a href="./feedback.php">
             <button type="button">Feedback</button>
         </a>
         <a href="../about_us.html">
@@ -110,9 +186,6 @@
     
             <label for="comentarios">Comentarios:</label><br>
             <textarea id="comentarios" name="message" rows="4" placeholder="inserte su comentario aqui..." required></textarea><br>
-            <br>
-            <label for="calificacion">Calificación (opcional):</label><br>
-            <input type="number" id="calificacion" name="calificacion" min="1" max="5"><br>
             <br>
             <button type="submit">Enviar</button><br>
         </form>
