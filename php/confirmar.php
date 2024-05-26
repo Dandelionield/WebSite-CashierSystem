@@ -1,16 +1,18 @@
+
+
 <?php
-    $VCode=$_POST['vcode'];
-    $Ucode=@$_POST['ucode'];
-    $usuario=@$_POST['usuario'];
-    $contraseña=@$_POST['contraseña'];
-    $email=$_POST['email'];
+session_start();
+$_SESSION['sender']=false;
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usercode'])) {
+    $usercode = $_POST['usercode'];
+    $code = $_SESSION['code'];
+    $username = $_SESSION['username'];
+    $email = $_SESSION['email'];
+    $pass = $_SESSION['pass'];
 
-
-    if($VCode== $Ucode){
-
+    if ($usercode == $code) {
         
-
         $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
         if (!$connection_obj) {
             echo "Error No: " . mysqli_connect_errno();
@@ -19,14 +21,23 @@
         }
         
         // prepare the insert query 
-        $query = "INSERT INTO `users` (`nickname`, `email`, `password`,`admin`) VALUES ( '".$usuario."', '".$email."', '".$contraseña."', '0');";
+        $query = "INSERT INTO `users` (`nickname`, `email`, `password`) VALUES ( '".$username."', '".$email."', '".$pass."');";
         // run the insert query 
         mysqli_query($connection_obj, $query);
         // close the db connection 
         mysqli_close($connection_obj);
+        session_unset();
+        session_destroy();
 
-
+        
+    } else {
+        header('Location: enviar.php');
+        $_SESSION['errormsj']="Codigo incorrecto, vuelva a intentar.";
+        exit();
     }
+} else {
+    echo "Método no permitido.";
+}
 ?>
 
 <html lang="es">
@@ -76,56 +87,23 @@
 		<!--contenido-->
 		<div class="box4" style="height:80vh;">
             <form  method="post" action="confirmar.php" class="form" style="height:auto;">
-				<h2>verificar correo</h2>
-
-				<div class="field" >
-					<h3>
-                        se ha enviado un codigo a:
-                    </h3>
-                    <h4>
-                        <i style="color:black;"><?php echo $email; ?></i>
-                    </h4><br>
-                    <h3>
-                        Por favor ingrese el codigo aqui
-                    </h3>
-					<input type="text" placeholder="X X X X X X X" id="code" name="ucode">
-                    <input style="visibility:hidden;height: 0;" name="email" type="text" value=<?php echo $email;?> readonly>
-                    <input style="visibility:hidden;height: 0;" name="vcode" type="text" value=<?php echo $VCode;?> readonly>
-                    <input style="visibility:hidden;height: 0;" name="usuario" type="text" value=<?php echo $usuario?> readonly>
-                    <input style="visibility:hidden;height: 0;" name="contraseña" type="text" value=<?php echo $contraseña;?> readonly>
-				</div>
-
-				<button type="submit"  id="sbmt">verificar</button>
-
-                <script>
-                    
-
-                   
-
-                        let code = "<?php echo $Ucode; ?>";
-                        let codigo = "<?php echo $VCode; ?>";
-                        
-                        if(code == codigo){
-
-                            let field= document.querySelector(".form");
-                            let segundos = 5;
-                            const intervalo = setInterval(() => {
-                                field.innerHTML="<h1>Registro Realizado con exito!</h1><br> redireccionando a la pagina principal... "+segundos+"s";
-                                segundos--;
-                                if (segundos < 0) {
-                                clearInterval(intervalo);
-                                location.replace("../main.html");
-                                }
-                            }, 1000);
-                        }
-                    
-                </script>
-				
-				<div class="field2">
-					<a href="../main.html">volver</a>
-                    <a href="../login.html">¿Ya tiene una cuenta?</a>
-				</div>
+            <img src="../styles/Loading.gif">
             </form>
+            <script>
+
+            let field= document.querySelector(".form");
+            let segundos = 5;
+            const intervalo = setInterval(() => {
+                field.innerHTML="<h1>Registro Realizado con éxito!</h1><br> redireccionando a iniciar sesión... "+segundos+"s";
+                segundos--;
+                if (segundos < 0) {
+                clearInterval(intervalo);
+                location.replace("../login.html");
+                }
+            }, 1000);
+        
+    
+        </script>
 		</div>
 		
 		<!--footer-->
