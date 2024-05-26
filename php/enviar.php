@@ -11,17 +11,42 @@
 		<script src="../javascript/scripts.js"></script>
 
         <?php
-            $email= filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            $nombre="Equipo de Atencion vc company";
-            $usuario= filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-            $contraseña= $_POST['pass'];
+
+        session_start();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass'])) {
+            // Recibir datos del formulario
+            $sender=true;
+            $errormsj="";
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $pass = $_POST['pass'];
+
+            // Generar un número aleatorio entre 1 y 10
+            $code = rand(1234567, 7654321);
+
+            // Guardar los datos en la sesión
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
+            $_SESSION['pass'] = $pass;
+            $_SESSION['code'] = $code;  
+            $_SESSION['sender'] = $sender;
+            $_SESSION['errormsj'] = $errormsj;  
+        }
+
+        $email = $_SESSION['email'];
+        $username=  $_SESSION['username'];
+        $pass= $_SESSION['pass'];
+        $Companyname="Equipo de Atencion vc company";
+        $sender= $_SESSION['sender'];
+            
 
 
-            if(!empty($email) && !empty($nombre)){
+            if(!empty($email) && $sender==true){
 
             $destino= $email;
             $asunto= "Verificacion de Correo";
-            $VCode= rand(1234567, 7654321);
+            $code= $_SESSION['code'];
 
             $cuerpo= '
             <html lang="es">
@@ -70,7 +95,7 @@
                     <div>
                         <label for="mensaje">
                         
-                        <h1>Hola, '. $usuario . ' </h1>
+                        <h1>Hola, '. $username . ' </h1>
                         <br>
                         En vc company estamos felices de recibirte.<br>
                         Con tu ayuda podremos crecer y expandir nuestros proyectos y encontrar nuevas formas de innovar 
@@ -78,7 +103,7 @@
                         Por favor insrta el siguiente codigo para verificar tu direccion de correo:<br><br>
                         <div style="background: #ffeeee; padding: 2px;">
                         <h1 style="display:flex;">
-                            <p style="margin: auto;">'. $VCode .'</p>
+                            <p style="margin: auto;">'. $code .'</p>
                         </h1>
                         </div>
                         <br>
@@ -97,7 +122,7 @@
             $headers .= "Content-Type: text/html; charset= utf-8\r\n";
 
             //direccion del remitente
-            $headers .= "From: $nombre <$email>\r\n";
+            $headers .= "From: $Companyname <$email>\r\n";
 
             //ruta del mensaje de origen a destino
             $headers .= "Return-path: $destino\r\n";
@@ -156,29 +181,30 @@
 		<!--contenido-->
 		<div class="box4" style="height: 80vh;">
             <form method="post" action="confirmar.php" class="form" style="height:auto">
-				<h2>Informacion de usuario</h2>
-
-				<div class="field" >
-					<h3>
-                        Su informacion de usuario es la siguiente:
+                <h2>verificar correo</h2>
+                <div class="field" >
+                    <h3>
+                        se ha enviado un codigo a:
                     </h3>
                     <h4>
-                        nombre: <input name="usuario" type="text" value=<?php echo $usuario;?> readonly>
-                        correo:<input name="email" type="text" value=<?php echo $email;?> readonly>
-                        contraseña:<input name="contraseña" type="text" value=<?php echo $contraseña;?> readonly>
-                    </h4><br>
+                        <i style="color:black;"><?php echo $email; ?></i>
+                    </h4>
+                    <h4>
+                        <i style="color:red;"><?php echo $_SESSION['errormsj']; ?></i>
+                    </h4>
+                    <h3>
+                        Por favor ingrese el codigo aqui
+                    </h3>
+                    <input type="text" placeholder="X X X X X X X" id="ucode" name="usercode">
 
-                    se le envio un codigo de verificacion a su correo.
-
-                    <input style="visibility:hidden;height: 0;" name="vcode" type="number" value=<?php echo $VCode;?> readonly>
-				</div>
-
-				<button type="submit"  id="sbmt">ingresar codigo</button>
-				
-				<div class="field2">
-					<a href="../main.html">volver</a>
+                </div>
+                <button type="submit"  id="sbmt">verificar</button>
+                
+                
+                <div class="field2">
+                    <a href="../main.html">volver</a>
                     <a href="../login.html">¿Ya tiene una cuenta?</a>
-				</div>
+                </div>
             </form>
 		</div>
 		
