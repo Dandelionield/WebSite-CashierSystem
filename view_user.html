@@ -6,12 +6,11 @@
 		<link rel="stylesheet" media="screen" href="styles/mainStyle.css">
 		<link rel="stylesheet" media="screen" href="styles/BoxStyle.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<title>CashierSystem | Tablas</title>
+		<title>CashierSystem | Sobre nosotros</title>
 		<link rel="icon" href="styles/imagenes/Icono.png">
 	</head>
 	<body>
 		<script src="javascript/scripts.js"></script>
-		<script src="javascript/table.js"></script>
 		
 		<!--Encabezado-->
 		<header id="header">
@@ -20,7 +19,7 @@
 				<img src="styles/imagenes/logo.png" alt="logo">
 			</a>
 			<a href="login.html" id="login">
-				<button>Iniciar Sesión</button>
+				<button type="button">Iniciar Sesión</button>
 			</a>
 			<a href="register.html" id="register">
 				<button type="button">Registrarse</button>
@@ -47,25 +46,34 @@
 		</aside>
 
 		<!--contenido-->
-		<div class="box4">
-			<div>
-				<h3>Users</h3>
-				<table>
-					<tbody id="table_user"></tbody>
-				</table>
-			</div>
-			
-			<div>
-				<h3>Feedback</h3>
-				<table>
-					<tbody id="table_feedback"></tbody>
-				</table>
-			</div>
-			
-			<button type="button" id="reloadTable" onclick="reloadTable();">
-				Recargar
-			</button>
-		</div>
+        <article id="article">
+        </article>
+
+        <script>
+            let params = new URLSearchParams(location.search);
+            var contract = params.get('user');
+
+            $.ajax({
+                url: "php/getUser.php",
+                type: "POST",
+                dataType: "json",
+                data: {"user" : contract},
+                success: function(data){
+                    $("#article").append(
+                        `<h1>Información del usuario</h1><br>
+						 <h3>Id: ${data.id}</h3>
+						 <h3>Nombre y apellido: ${data.nickname}</h3>
+						 <h3>Email: ${data.email}</h3>
+						 <h3>Contraseña: ${data.password}</h3>
+						 <h3>Admin: ${data.admin}</h3>
+                        `
+                    );
+                }, 
+                error: function(error){
+					alert(error);
+				}
+            });
+        </script>
 		
 		<!--footer-->
 		<footer>

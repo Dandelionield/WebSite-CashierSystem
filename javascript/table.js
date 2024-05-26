@@ -18,7 +18,7 @@ function reloadTable() {
 			);
 
 			$.each(datas.user, function(i, datas){
-				var fila = `<tr>
+				var fila = `<tr onclick="viewUser(${i});">
 								<th>${datas.id}</th>
 								<th>${datas.nickname}</th>
 								<th>${datas.email}</th>
@@ -34,14 +34,16 @@ function reloadTable() {
 					<th>id user</th>
 					<th>message</th>
 					<th>version</th>
+					<th>type</th>
 				</tr>`
 			);
 
 			$.each(datas.feedback, function(i, datas){
-				var fila = `<tr>
+				var fila = `<tr onclick="viewFeedback(${i});">
 								<th>${datas.id_user}</th>
 								<th>${datas.message}</th>
 								<th>${datas.version_id}</th>
+								<th>${datas.tipo}</th>
 							</tr>`;
 
 				$("#table_feedback").append(fila);
@@ -54,3 +56,11 @@ function reloadTable() {
 }
 
 reloadTable();
+
+function viewFeedback(n){
+	location.href="view_feedback.html?user=" + n;
+}
+
+function viewUser(n){
+	location.href="view_user.html?user=" + n;
+}

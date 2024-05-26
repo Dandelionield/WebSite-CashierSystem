@@ -108,6 +108,7 @@ article {
     padding: 20px;
 	background-color: var(--complementary);
     background-image: url("imagenes/test.png");
+	min-height: 80vh;
 }
 
 article h1, article h2 {
@@ -121,8 +122,11 @@ table {
 }
 
 th {
-	overflow-wrap: break-word;
+	/*overflow-wrap: break-word;*/
     max-width: 200px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
 }
 
 tr:hover {
