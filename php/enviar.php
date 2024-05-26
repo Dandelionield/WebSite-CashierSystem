@@ -153,29 +153,22 @@
 			
 		</header>
 		
-		<!--Aside-->
 		<aside id="aside">
-        <a href="../main.html">
-            <button type="button">Inicio</button>
-        </a>
-        <a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
-            <button type="button">Documentacion</button>
-        </a>
-        <a href="../downloads.html">
-            <button type="button">Actualizaciones</button>
-        </a>
-        <a href="../downloads.html">
-            <button type="button">Versiones</button>
-        </a>
-        <a href="../table.html">
-            <button type="button">Tabla</button>
-        </a>
-        <a href="../about_us.html">
-            <button type="button">Sobre Nosotros</button>
-        </a>
-        <a href="../feedback.html">
-            <button type="button">Feedback</button>
-        </a>
+		        <a href="../main.html">
+		            <button type="button">Inicio</button>
+		        </a>
+		        <a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
+		            <button type="button">Documentacion</button>
+		        </a>
+		        <a href="../downloads.html">
+		            <button type="button">Descargar</button>
+		        </a>
+		        <a href="../about_us.html">
+		            <button type="button">Sobre Nosotros</button>
+		        </a>
+		        <a href="../feedback.html">
+		            <button type="button">Feedback</button>
+		        </a>
 		</aside>
 
 		<!--contenido-->
