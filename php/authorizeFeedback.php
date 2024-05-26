@@ -101,7 +101,7 @@ $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
 
         
         <form class="form" style="width: auto; height:auto; margin:auto;"    >
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif">
+            <img src="../styles/Loading.gif">
         </form>
 
         <script>
@@ -109,7 +109,7 @@ $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
                         let field= document.querySelector(".form");
                         let segundos = 5;
                         const intervalo = setInterval(() => {
-                            field.innerHTML="<h1>Feedback eviado con exito!</h1><br> redireccionando a la pagina principal... "+segundos+"s";
+                            field.innerHTML="<h1>Feedback eviado con éxito!</h1><br> redireccionando a iniciar sesión... "+segundos+"s";
                             segundos--;
                             if (segundos < 0) {
                             clearInterval(intervalo);
@@ -135,9 +135,6 @@ $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
         
     </footer>
 
-
-
-</body></html>
 
 
 </body></html>
