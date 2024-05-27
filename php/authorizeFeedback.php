@@ -109,7 +109,7 @@ $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
                         let field= document.querySelector(".form");
                         let segundos = 5;
                         const intervalo = setInterval(() => {
-                            field.innerHTML="<h1>Feedback eviado con éxito!</h1><br> redireccionando a iniciar sesión... "+segundos+"s";
+                            field.innerHTML="<h1>Feedback eviado con éxito!</h1><br> redireccionando a a la página principal... "+segundos+"s";
                             segundos--;
                             if (segundos < 0) {
                             clearInterval(intervalo);
