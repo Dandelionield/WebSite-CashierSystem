@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usercode'])) {
     } else {
         header('Location: enviar.php');
         $_SESSION['errormsj']="Codigo incorrecto, vuelva a intentar.";
+        $_SESSION['REmail']=null;
         exit();
     }
 } else {
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['usercode'])) {
 		<link rel="stylesheet"  href="../styles/mainStyle.css">
 		<link rel="stylesheet"  href="../styles/BoxStyle.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<title>CashierSystem | Confirmar</title>
+		<title>CashierSystem | Verificado</title>
         <link rel="icon" href="../styles/imagenes/Icono.png">
 	</head>
 	<body>
