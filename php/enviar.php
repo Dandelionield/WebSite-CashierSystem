@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet"  href="../styles/mainStyle.css">
 		<link rel="stylesheet"  href="../styles/BoxStyle.css">
-		<title>C-Cash</title>
+		<title>Verificacion</title>
 	</head>
 	<body>
 		<script src="../javascript/scripts.js"></script>
@@ -19,22 +19,13 @@
             exit;
         }
 
-        $REmail =mysqli_fetch_array(
-            mysqli_query($connection_obj, "SELECT * FROM users WHERE email='".$_POST["email"]."';"),
-            MYSQLI_BOTH
-        );
-
-        if($REmail != null){
-            echo "<script>alert('El correo ingresado ya ha sido registrado'); window.location.href='../register.html';</script>";
-            
-        }
-        
 
         session_start();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass'])) {
             // Recibir datos del formulario
             $sender=true;
+            $REmail =mysqli_fetch_array(mysqli_query($connection_obj, "SELECT * FROM users WHERE email='".$_POST["email"]."';"), MYSQLI_BOTH );
             $errormsj="";
             $username = $_POST['username'];
             $email = $_POST['email'];
@@ -49,16 +40,25 @@
             $_SESSION['pass'] = $pass;
             $_SESSION['code'] = $code;  
             $_SESSION['sender'] = $sender;
-            $_SESSION['errormsj'] = $errormsj;  
+            $_SESSION['errormsj'] = $errormsj;
+            $_SESSION['REmail'] = $REmail;  
         }
+
+        mysqli_close($connection_obj);
+        
 
         $email = $_SESSION['email'];
         $username=  $_SESSION['username'];
         $pass= $_SESSION['pass'];
         $Companyname="Equipo de Atencion vc company";
         $sender= $_SESSION['sender'];
-            
+        $REmail = $_SESSION['REmail'];   
 
+        if($REmail != null){
+
+            echo "<script>alert('El correo ingresado ya ha sido registrado'); window.location.href='../register.html';</script>";
+            
+        }
 
             if(!empty($email) && $sender==true && $REmail==null){
 
@@ -234,3 +234,5 @@
 		</footer>
 	</body>
 </html>
+
+
