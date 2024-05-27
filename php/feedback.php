@@ -23,10 +23,10 @@ $.ajax({
         if(user != null) {
             if (user.admin == 1) {
                 $("#aside").append(`
-                    <a href="table.html">
+                    <a href="../table.html">
                         <button type="button">Tabla</button>
                     </a>
-                    <a href="newUpdate.html">
+                    <a href="../newUpdate.html">
                         <button type="button">Agregar versión</button>
                     </a>
                 `);
@@ -35,7 +35,7 @@ $.ajax({
             $("#login").remove();
             $("#register").remove();
             $("#header").append(`
-                    <a href="user.html">
+                    <a href="../user.html">
                         <button type="button">${user.nickname}</button>
                     </a>        
                     <a href="signOff.php">
