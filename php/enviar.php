@@ -12,6 +12,24 @@
 
         <?php
 
+        $connection_obj = mysqli_connect('localhost', 'root', '', 'bd_web');
+        if (!$connection_obj) {
+            echo "Error No: " . mysqli_connect_errno();
+            echo "Error Description: " . mysqli_connect_error();
+            exit;
+        }
+
+        $REmail =mysqli_fetch_array(
+            mysqli_query($connection_obj, "SELECT * FROM users WHERE email='".$_POST["email"]."';"),
+            MYSQLI_BOTH
+        );
+
+        if($REmail != null){
+            echo "<script>alert('El correo ingresado ya ha sido registrado'); window.location.href='../register.html';</script>";
+            
+        }
+        
+
         session_start();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass'])) {
@@ -22,7 +40,7 @@
             $email = $_POST['email'];
             $pass = $_POST['pass'];
 
-            // Generar un número aleatorio entre 1 y 10
+            
             $code = rand(1234567, 7654321);
 
             // Guardar los datos en la sesión
@@ -42,7 +60,7 @@
             
 
 
-            if(!empty($email) && $sender==true){
+            if(!empty($email) && $sender==true && $REmail==null){
 
             $destino= $email;
             $asunto= "Verificacion de Correo";
@@ -85,8 +103,8 @@
             </style>
 
             <body>
-                <h1>Verificacion de Registro</h1>
-                <div style="background: #cee0f3; 
+                <h1>Verificación de Registro</h1>
+                <div style="background-image: linear-gradient(to top, #edf7f8, #bfe8f5, #96d6f9, #7ac1ff, #78a7ff, #7794fc, #7e7ff4, #8a67e9, #7e57e5, #7247e0, #6536db, #5821d6); 
                 vertical-align: top;
                 direction: ltr;
                 width: 50%;
@@ -100,14 +118,14 @@
                         En vc company estamos felices de recibirte.<br>
                         Con tu ayuda podremos crecer y expandir nuestros proyectos y encontrar nuevas formas de innovar 
                         en campos mas allá de la administración.<br><br> 
-                        Por favor insrta el siguiente codigo para verificar tu direccion de correo:<br><br>
+                        Por favor inserte el siguiente código para verificar tu dirección de correo:<br><br>
                         <div style="background: #ffeeee; padding: 2px;">
                         <h1 style="display:flex;">
                             <p style="margin: auto;">'. $code .'</p>
                         </h1>
                         </div>
                         <br>
-                        si no reconoces este mensaje solo ignorelo.
+                        si no reconoces este mensaje solo ignórelo.
                         
                         </label>
                         
@@ -153,22 +171,23 @@
 			
 		</header>
 		
+		<!--Aside-->
 		<aside id="aside">
-		        <a href="../main.html">
-		            <button type="button">Inicio</button>
-		        </a>
-		        <a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
-		            <button type="button">Documentacion</button>
-		        </a>
-		        <a href="../downloads.html">
-		            <button type="button">Descargar</button>
-		        </a>
-		        <a href="../about_us.html">
-		            <button type="button">Sobre Nosotros</button>
-		        </a>
-		        <a href="../feedback.html">
-		            <button type="button">Feedback</button>
-		        </a>
+        <a href="../main.html">
+            <button type="button">Inicio</button>
+        </a>
+        <a href="https://docs.google.com/document/d/1OEu_yfQ9JSosNnB6QlQ_KNqtgtmm6lxNfqOJZTl1wWQ/edit?usp=sharing">
+            <button type="button">Documentacion</button>
+        </a>
+        <a href="../downloads.html">
+            <button type="button">Descargar</button>
+        </a>
+        <a href="../about_us.html">
+            <button type="button">Sobre Nosotros</button>
+        </a>
+        <a href="../feedback.html">
+            <button type="button">Feedback</button>
+        </a>
 		</aside>
 
 		<!--contenido-->
@@ -215,5 +234,3 @@
 		</footer>
 	</body>
 </html>
-
-
